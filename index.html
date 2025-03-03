@@ -3,239 +3,767 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Landing Page</title>
+    <title>OmniHealth - Professional Mental Health Services in Andheri East, Mumbai</title>
+    <meta name="description" content="Expert therapy services in Andheri East, Mumbai including individual therapy, couple counseling, child counseling, psychiatry, geriatric care, home counselling, and online sessions.">
+    <meta name="keywords" content="mental health mumbai, therapy andheri east, psychiatrist mumbai, couple therapy, child counseling, geriatric mental health, home counselling, online therapy">
+    <meta name="author" content="OmniHealth Services">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="OmniHealth - Mental Health Services in Andheri East, Mumbai">
+    <meta property="og:description" content="Expert therapy and psychiatry services in Andheri East, Mumbai. Offering individual, couple, child, geriatric counseling, home counselling, and online therapy.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+    <meta property="og:url" content="https://omnihealthservices.in">
+    <meta name="twitter:card" content="summary_large_image">
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mental Health Services in Andheri East, Mumbai</title>
-    <meta name="description" content="Expert therapy and psychiatry services in Andheri East, Mumbai. Affordable, personalized mental health care for all stages of life.">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#D3E4FD',
+                            DEFAULT: '#2A7DE1',
+                            dark: '#1D56A0'
+                        },
+                        secondary: {
+                            light: '#F2FCE2',
+                            DEFAULT: '#8FB573',
+                            dark: '#5D7B4A'
+                        },
+                        neutral: {
+                            light: '#F1F0FB',
+                            DEFAULT: '#8E9196',
+                            dark: '#4A4B53'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',
+                        'hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
+                    },
+                    animation: {
+                        'float': 'float 8s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)',
+                            },
+                            '50%': {
+                                transform: 'translateY(-20px)',
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         html {
             scroll-behavior: smooth;
         }
+        
+        .blue-gradient-bg {
+            background: linear-gradient(135deg, #e0f2ff 0%, #ffffff 50%, #d0e8ff 100%);
+            position: relative;
+        }
+        
+        .blue-gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(148, 187, 233, 0.4) 0%, rgba(255, 255, 255, 0) 50%),
+                radial-gradient(circle at 70% 60%, rgba(173, 216, 230, 0.4) 0%, rgba(255, 255, 255, 0) 50%),
+                radial-gradient(circle at 40% 80%, rgba(207, 231, 252, 0.3) 0%, rgba(255, 255, 255, 0) 40%);
+            pointer-events: none;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(42, 125, 225, 0.15);
+        }
+        
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .testimonial-card {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            border-left-color: #2A7DE1;
+        }
+        
+        .service-card {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-top: 4px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top-color: #2A7DE1;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #2A7DE1;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        
+        .mask-gradient {
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+        
+        .blur-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: pulse-slow 8s infinite;
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        
+        .benefit-icon {
+            transition: all 0.5s ease;
+        }
+        
+        .benefit-item:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: #2A7DE1;
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+            border-left: 0px solid #2A7DE1;
+        }
+        
+        .faq-item:hover {
+            border-left-width: 4px;
+            padding-left: calc(1.5rem - 4px);
+        }
+        
+        #back-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .contact-form-wrapper {
+            background: linear-gradient(135deg, rgba(42, 125, 225, 0.8) 0%, rgba(31, 87, 160, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            transition: all 0.5s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: translateY(-5px);
+            color: #2A7DE1;
+        }
     </style>
 </head>
-<body class="font-['Inter'] antialiased bg-white text-gray-900">
-    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <nav class="container mx-auto px-6 py-4">
+<body class="font-sans antialiased text-neutral-dark overflow-x-hidden blue-gradient-bg">
+    <!-- Decorative blurred blobs -->
+    <div class="blur-blob bg-primary-light w-[600px] h-[600px] top-[5%] left-[-200px]"></div>
+    <div class="blur-blob bg-blue-200 w-[700px] h-[700px] top-[60%] right-[-250px]"></div>
+    <div class="blur-blob bg-sky-100 w-[500px] h-[500px] top-[30%] left-[60%]"></div>
+
+    <header class="fixed w-full bg-white/80 backdrop-blur-md shadow-soft z-50">
+        <nav class="container mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
-                <a href="https://amalanand29.github.io/mental-health-services-in-andheri-east--mumbai-2025-03-02-k634x" class="text-xl font-semibold hover:text-gray-700 transition-colors duration-300">OmniHealth</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#services" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Services</a>
-                    <a href="#benefits" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Benefits</a>
-                    <a href="#testimonials" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Testimonials</a>
-                    <a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">About</a>
-                    <a href="#faq" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">FAQ</a>
-                    <a href="#contact" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Contact</a>
+                <a href="/" class="text-2xl font-bold text-primary hover:text-primary-dark transition-colors duration-300 flex items-center">
+                    <span class="text-primary-dark">Omni</span>Health
+                    <span class="ml-2 bg-primary-light text-primary text-xs px-2 py-1 rounded-full">Mumbai</span>
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#services" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">Services</a>
+                    <a href="#benefits" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">Benefits</a>
+                    <a href="#testimonials" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">Testimonials</a>
+                    <a href="#about" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">About</a>
+                    <a href="#faq" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">FAQ</a>
+                    <a href="#contact" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">Contact</a>
                 </div>
+                <a href="#contact" class="hidden md:inline-block px-5 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors duration-300 shadow-soft">Book Now</a>
                 <button class="mobile-menu-button md:hidden" aria-label="Toggle menu">
-                    <i class="fas fa-bars text-2xl"></i>
+                    <i class="fas fa-bars text-2xl text-neutral-dark"></i>
                 </button>
             </div>
-            <div class="mobile-menu hidden md:hidden mt-4 bg-white rounded-lg shadow-lg absolute left-0 right-0 p-4">
-                <a href="#services" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">Services</a>
-                <a href="#benefits" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">Benefits</a>
-                <a href="#testimonials" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">Testimonials</a>
-                <a href="#about" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">About</a>
-                <a href="#faq" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">FAQ</a>
-                <a href="#contact" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">Contact</a>
+            <div class="mobile-menu hidden md:hidden mt-4 bg-white/95 rounded-lg shadow-soft absolute left-4 right-4 p-4 z-50">
+                <a href="#services" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">Services</a>
+                <a href="#benefits" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">Benefits</a>
+                <a href="#testimonials" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">Testimonials</a>
+                <a href="#about" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">About</a>
+                <a href="#faq" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">FAQ</a>
+                <a href="#contact" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">Contact</a>
+                <a href="#contact" class="block mt-2 text-center py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors duration-300">Book Now</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="pt-32 pb-24 px-6 bg-gradient-to-br from-gray-50 to-white">
+        <section class="pt-32 pb-24 px-6 relative">
             <div class="container mx-auto max-w-7xl">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">Transform Your Mental Well-being in Andheri East, Mumbai</h1>
-                <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl leading-relaxed">Experience comprehensive mental health care with our team of expert therapists and psychiatrists. Personalized treatment plans designed for lasting positive change.</p>
-                <a href="https://omnihealthservices.in" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl">Schedule Your Free Consultation</a>
-            </div>
-        </section>
-
-        <section id="services" class="py-24 bg-gray-50">
-            <div class="container mx-auto max-w-7xl px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Comprehensive Mental Health Services</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 hover:bg-gray-50">
-                        <h3 class="text-xl font-semibold mb-4">Affordable & Accessible Care</h3>
-                        <p class="text-gray-600">Quality mental health services starting at ₹1000 per session. Flexible payment plans and insurance coverage available.</p>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="animate-fade-in">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">TRUSTED MENTAL HEALTH CARE</span>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-dark mb-6 leading-tight text-shadow-sm">Transform Your Mental Well-being in <span class="text-primary">Andheri East</span></h1>
+                        <p class="text-lg md:text-xl text-neutral mb-8 max-w-xl leading-relaxed">Experience comprehensive mental health care with our team of expert therapists and psychiatrists. Personalized treatment plans designed for lasting positive change.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#contact" class="btn-primary inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-soft hover:shadow-hover">Schedule Free Consultation</a>
+                            <a href="#about" class="inline-block px-8 py-4 rounded-lg font-semibold border border-neutral/20 hover:border-primary hover:text-primary transition-all duration-300 hover:shadow-soft">Learn More</a>
+                        </div>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 hover:bg-gray-50">
-                        <h3 class="text-xl font-semibold mb-4">Expert Clinical Team</h3>
-                        <p class="text-gray-600">Licensed therapists and psychiatrists with 10+ years of experience in diverse mental health conditions.</p>
+                    <div class="hidden md:block rounded-2xl overflow-hidden shadow-hover animate-fade-in delay-200 relative group">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Mental health professional in consultation" class="w-full h-auto rounded-2xl hover:scale-105 transition-transform duration-700 object-cover">
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102 hover:bg-gray-50">
-                        <h3 class="text-xl font-semibold mb-4">Personalized Treatment</h3>
-                        <p class="text-gray-600">Customized therapy plans incorporating evidence-based approaches for your unique needs and goals.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in delay-300">
+                    <div class="glass-card p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
+                        <p class="text-3xl font-bold text-primary">10+</p>
+                        <p class="text-neutral">Years Experience</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
+                        <p class="text-3xl font-bold text-primary">2000+</p>
+                        <p class="text-neutral">Clients Helped</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
+                        <p class="text-3xl font-bold text-primary">15+</p>
+                        <p class="text-neutral">Specialists</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
+                        <p class="text-3xl font-bold text-primary">4.9</p>
+                        <p class="text-neutral">Star Rating</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="benefits" class="py-24">
+        <section id="services" class="py-24 relative">
             <div class="container mx-auto max-w-7xl px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Life-Changing Benefits</h2>
+                <div class="text-center mb-16 animate-fade-in">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">OUR SERVICES</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Comprehensive Mental Health Services</h2>
+                    <p class="text-neutral max-w-3xl mx-auto">Tailored approaches to address your unique mental health needs with evidence-based treatments</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-100">
+                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-user text-xl text-primary service-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Individual Therapy</h3>
+                        <p class="text-neutral">One-on-one sessions with licensed therapists for anxiety, depression, trauma, and other mental health concerns.</p>
+                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
+                            <p class="text-primary font-medium">Starting at ₹1000 per session</p>
+                        </div>
+                    </div>
+                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-200">
+                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-user-friends text-xl text-primary service-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Couple Therapy</h3>
+                        <p class="text-neutral">Relationship counseling to improve communication, resolve conflicts, and strengthen emotional bonds between partners.</p>
+                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
+                            <p class="text-primary font-medium">Starting at ₹1500 per session</p>
+                        </div>
+                    </div>
+                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-300">
+                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-child text-xl text-primary service-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Child Counselling</h3>
+                        <p class="text-neutral">Specialized support for children facing behavioral issues, anxiety, learning difficulties, or emotional challenges.</p>
+                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
+                            <p class="text-primary font-medium">Starting at ₹1200 per session</p>
+                        </div>
+                    </div>
+                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-100">
+                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-pills text-xl text-primary service-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Psychiatry & Medication</h3>
+                        <p class="text-neutral">Expert psychiatric evaluation, diagnosis, and medication management for mental health disorders requiring clinical intervention.</p>
+                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
+                            <p class="text-primary font-medium">Starting at ₹1800 per consultation</p>
+                        </div>
+                    </div>
+                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-200">
+                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-user-md text-xl text-primary service-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Geriatric Mental Health</h3>
+                        <p class="text-neutral">Specialized care for elderly individuals dealing with age-related mental health concerns, including memory issues and depression.</p>
+                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
+                            <p class="text-primary font-medium">Starting at ₹1300 per session</p>
+                        </div>
+                    </div>
+                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-300">
+                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-home text-xl text-primary service-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Home Counselling</h3>
+                        <p class="text-neutral">Professional therapy sessions conducted in the comfort of your own home, particularly beneficial for those with mobility limitations.</p>
+                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
+                            <p class="text-primary font-medium">Starting at ₹1600 per session</p>
+                        </div>
+                    </div>
+                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-300 md:col-start-2">
+                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-laptop-medical text-xl text-primary service-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Online Therapy</h3>
+                        <p class="text-neutral">Convenient virtual sessions providing the same quality of care as in-person therapy, accessible from the comfort of your home.</p>
+                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
+                            <p class="text-primary font-medium">Starting at ₹900 per session</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12 animate-fade-in delay-400">
+                    <a href="#contact" class="btn-primary inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-soft hover:shadow-hover">Book Your First Session</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="py-24 relative">
+            <div class="container mx-auto max-w-7xl px-6">
+                <div class="text-center mb-16 animate-fade-in">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">WHY CHOOSE US</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Life-Changing Benefits</h2>
+                    <p class="text-neutral max-w-3xl mx-auto">Our approach is designed to provide lasting transformation, not just temporary relief</p>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="text-center hover:transform hover:scale-105 transition-all duration-300">
-                        <div class="mb-6">
-                            <i class="fas fa-heart text-4xl text-gray-900"></i>
+                    <div class="benefit-item text-center animate-fade-in delay-100 glass-card p-8 rounded-xl hover:shadow-hover">
+                        <div class="mb-6 bg-primary-light/50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-heart text-3xl text-primary benefit-icon"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Find Inner Peace</h3>
-                        <p class="text-gray-600">Develop effective coping strategies and mindfulness techniques for lasting emotional balance.</p>
+                        <p class="text-neutral">Develop effective coping strategies and mindfulness techniques for lasting emotional balance.</p>
                     </div>
-                    <div class="text-center hover:transform hover:scale-105 transition-all duration-300">
-                        <div class="mb-6">
-                            <i class="fas fa-brain text-4xl text-gray-900"></i>
+                    <div class="benefit-item text-center animate-fade-in delay-200 glass-card p-8 rounded-xl hover:shadow-hover">
+                        <div class="mb-6 bg-primary-light/50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-brain text-3xl text-primary benefit-icon"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Gain Mental Clarity</h3>
-                        <p class="text-gray-600">Break through mental blocks and achieve deeper self-understanding for better decision-making.</p>
+                        <p class="text-neutral">Break through mental blocks and achieve deeper self-understanding for better decision-making.</p>
                     </div>
-                    <div class="text-center hover:transform hover:scale-105 transition-all duration-300">
-                        <div class="mb-6">
-                            <i class="fas fa-star text-4xl text-gray-900"></i>
+                    <div class="benefit-item text-center animate-fade-in delay-300 glass-card p-8 rounded-xl hover:shadow-hover">
+                        <div class="mb-6 bg-primary-light/50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
+                            <i class="fas fa-star text-3xl text-primary benefit-icon"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Thrive in Life</h3>
-                        <p class="text-gray-600">Build resilience and develop practical tools for sustainable personal growth and success.</p>
+                        <p class="text-neutral">Build resilience and develop practical tools for sustainable personal growth and success.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="py-24 bg-gray-50">
+        <section id="testimonials" class="py-24 relative">
             <div class="container mx-auto max-w-7xl px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Client Success Stories</h2>
+                <div class="text-center mb-16 animate-fade-in">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">SUCCESS STORIES</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Client Success Stories</h2>
+                    <p class="text-neutral max-w-3xl mx-auto">Real experiences from people who've transformed their lives with our support</p>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-center mb-4">
+                    <div class="testimonial-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-100">
+                        <div class="flex items-center mb-6">
                             <div class="text-yellow-400">★★★★★</div>
+                            <div class="ml-2 text-neutral text-sm">5.0</div>
                         </div>
-                        <p class="text-gray-600 mb-4">"The personalized attention and expert guidance helped me overcome my anxiety. After 3 months of therapy, I've seen remarkable improvement in my work and relationships."</p>
-                        <p class="font-semibold">Priya S.</p>
-                        <p class="text-sm text-gray-500">Marketing Professional</p>
+                        <p class="text-neutral mb-6 italic">"The personalized attention and expert guidance helped me overcome my anxiety. After 3 months of therapy, I've seen remarkable improvement in my work and relationships."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center text-primary font-bold">PS</div>
+                            <div class="ml-4">
+                                <p class="font-semibold">Priya S.</p>
+                                <p class="text-sm text-neutral">Marketing Professional</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-center mb-4">
+                    <div class="testimonial-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-200">
+                        <div class="flex items-center mb-6">
                             <div class="text-yellow-400">★★★★★</div>
+                            <div class="ml-2 text-neutral text-sm">5.0</div>
                         </div>
-                        <p class="text-gray-600 mb-4">"The cognitive behavioral therapy sessions have given me practical tools to manage stress. I'm sleeping better and feeling more confident."</p>
-                        <p class="font-semibold">Rahul M.</p>
-                        <p class="text-sm text-gray-500">Software Engineer</p>
+                        <p class="text-neutral mb-6 italic">"The cognitive behavioral therapy sessions have given me practical tools to manage stress. I'm sleeping better and feeling more confident."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center text-primary font-bold">RM</div>
+                            <div class="ml-4">
+                                <p class="font-semibold">Rahul M.</p>
+                                <p class="text-sm text-neutral">Software Engineer</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-center mb-4">
+                    <div class="testimonial-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-300">
+                        <div class="flex items-center mb-6">
                             <div class="text-yellow-400">★★★★★</div>
+                            <div class="ml-2 text-neutral text-sm">5.0</div>
                         </div>
-                        <p class="text-gray-600 mb-4">"Finding OmniHealth was a turning point in my life. The team's expertise and compassionate approach made all the difference."</p>
-                        <p class="font-semibold">Anjali K.</p>
-                        <p class="text-sm text-gray-500">Business Owner</p>
+                        <p class="text-neutral mb-6 italic">"Finding OmniHealth was a turning point in my life. The team's expertise and compassionate approach made all the difference in my recovery journey."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center text-primary font-bold">AK</div>
+                            <div class="ml-4">
+                                <p class="font-semibold">Anjali K.</p>
+                                <p class="text-sm text-neutral">Business Owner</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-center mb-4">
+                    <div class="testimonial-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-400">
+                        <div class="flex items-center mb-6">
                             <div class="text-yellow-400">★★★★★</div>
+                            <div class="ml-2 text-neutral text-sm">5.0</div>
                         </div>
-                        <p class="text-gray-600 mb-4">"The affordable rates and flexible scheduling made it possible for me to prioritize my mental health. I'm grateful for their support."</p>
-                        <p class="font-semibold">Vikram P.</p>
-                        <p class="text-sm text-gray-500">Graduate Student</p>
+                        <p class="text-neutral mb-6 italic">"The home counselling service was perfect for my elderly mother. The therapist's visits made a world of difference to her mental wellbeing without the stress of travel."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center text-primary font-bold">VP</div>
+                            <div class="ml-4">
+                                <p class="font-semibold">Vikram P.</p>
+                                <p class="text-sm text-neutral">IT Professional</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="py-24">
+        <section id="about" class="py-24 relative">
             <div class="container mx-auto max-w-7xl px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About OmniHealth</h2>
-                <div class="max-w-3xl mx-auto space-y-6">
-                    <p class="text-gray-600 leading-relaxed">Founded in 2015, OmniHealth emerged from a vision to make quality mental health care accessible to everyone in Mumbai. Our journey began with a small team of dedicated professionals and has grown into a comprehensive mental health center serving thousands of clients.</p>
-                    <p class="text-gray-600 leading-relaxed">Our mission is to provide evidence-based, compassionate mental health care that empowers individuals to overcome challenges and achieve their full potential. We believe in treating the whole person, not just symptoms, and are committed to maintaining the highest standards of professional care while keeping our services affordable and accessible.</p>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="hidden md:block rounded-2xl overflow-hidden shadow-hover animate-fade-in relative group">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="OmniHealth Clinic in Andheri East" class="w-full h-auto hover:scale-105 transition-transform duration-700 object-cover">
+                    </div>
+                    <div class="animate-fade-in delay-200">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">OUR STORY</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-shadow-sm">About OmniHealth</h2>
+                        <div class="space-y-6">
+                            <p class="text-neutral leading-relaxed">Founded in 2015, OmniHealth emerged from a vision to make quality mental health care accessible to everyone in Mumbai. Our journey began with a small team of dedicated professionals and has grown into a comprehensive mental health center serving thousands of clients.</p>
+                            <p class="text-neutral leading-relaxed">Our mission is to provide evidence-based, compassionate mental health care that empowers individuals to overcome challenges and achieve their full potential. We believe in treating the whole person, not just symptoms, and are committed to maintaining the highest standards of professional care while keeping our services affordable and accessible.</p>
+                        </div>
+                        <div class="mt-8 glass-card p-6 rounded-xl">
+                            <h3 class="text-xl font-semibold mb-4">Our Values</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center hover-scale">
+                                    <i class="fas fa-check-circle text-primary mr-2"></i>
+                                    <span>Compassionate Care</span>
+                                </div>
+                                <div class="flex items-center hover-scale">
+                                    <i class="fas fa-check-circle text-primary mr-2"></i>
+                                    <span>Scientific Approach</span>
+                                </div>
+                                <div class="flex items-center hover-scale">
+                                    <i class="fas fa-check-circle text-primary mr-2"></i>
+                                    <span>Accessibility</span>
+                                </div>
+                                <div class="flex items-center hover-scale">
+                                    <i class="fas fa-check-circle text-primary mr-2"></i>
+                                    <span>Confidentiality</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="py-24 bg-gray-50">
+        <section id="faq" class="py-24 relative">
             <div class="container mx-auto max-w-7xl px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+                <div class="text-center mb-16 animate-fade-in">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">COMMON QUESTIONS</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Frequently Asked Questions</h2>
+                    <p class="text-neutral max-w-3xl mx-auto">Answers to common questions about our services and approach</p>
+                </div>
                 <div class="max-w-3xl mx-auto space-y-6">
-                    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-100">
                         <h3 class="text-lg font-semibold mb-2">What types of mental health conditions do you treat?</h3>
-                        <p class="text-gray-600">We provide comprehensive care for anxiety, depression, stress, relationship issues, trauma, and other mental health concerns. Our expert team uses evidence-based approaches tailored to your needs.</p>
+                        <p class="text-neutral">We provide comprehensive care for anxiety, depression, stress, relationship issues, trauma, and other mental health concerns. Our expert team uses evidence-based approaches tailored to your needs.</p>
                     </div>
-                    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-200">
                         <h3 class="text-lg font-semibold mb-2">How long does each therapy session last?</h3>
-                        <p class="text-gray-600">Standard sessions are 50 minutes, while initial consultations are 90 minutes to allow for thorough assessment. We offer flexible scheduling including evening and weekend appointments.</p>
+                        <p class="text-neutral">Standard sessions are 50 minutes, while initial consultations are 90 minutes to allow for thorough assessment. We offer flexible scheduling including evening and weekend appointments.</p>
                     </div>
-                    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-300">
                         <h3 class="text-lg font-semibold mb-2">What are your payment options and fees?</h3>
-                        <p class="text-gray-600">Sessions start at ₹1000, with sliding scale options available. We accept major insurance plans and offer flexible payment arrangements to ensure accessibility.</p>
+                        <p class="text-neutral">Sessions start at ₹1000, with sliding scale options available. We accept major insurance plans and offer flexible payment arrangements to ensure accessibility.</p>
                     </div>
-                    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300">
-                        <h3 class="text-lg font-semibold mb-2">How soon can I get an appointment?</h3>
-                        <p class="text-gray-600">New clients typically get appointments within 1-2 weeks. For urgent cases, we offer priority scheduling options. Contact us to discuss your specific needs.</p>
+                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-400">
+                        <h3 class="text-lg font-semibold mb-2">Do you offer home counseling services?</h3>
+                        <p class="text-neutral">Yes, we provide home counseling services for clients who have mobility challenges or prefer the comfort of their own environment. This service is available in Andheri East and surrounding areas in Mumbai.</p>
                     </div>
-                    <div class="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-400">
                         <h3 class="text-lg font-semibold mb-2">Are your services confidential?</h3>
-                        <p class="text-gray-600">Yes, we maintain strict confidentiality in accordance with professional ethics and legal requirements. Your privacy and trust are our top priorities.</p>
+                        <p class="text-neutral">Yes, we maintain strict confidentiality in accordance with professional ethics and legal requirements. Your privacy and trust are our top priorities.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-24 bg-gray-900 text-white" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
-            <div class="container mx-auto max-w-7xl px-6 text-center bg-gray-900/80 py-16 rounded-xl">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8">Begin Your Journey to Better Mental Health</h2>
-                <p class="text-xl mb-12">Take the first step towards positive change - schedule your consultation today</p>
-                <div class="flex flex-col items-center space-y-4">
-                    <a href="mailto:info@omnihealthservices.in" class="text-lg hover:underline transition-all duration-300">info@omnihealthservices.in</a>
-                    <a href="https://omnihealthservices.in" class="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">Book Your Session Now</a>
+        <section id="contact" class="relative py-24 overflow-hidden contact-form-wrapper">
+            <div class="absolute inset-0 z-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
+            <div class="relative z-10 container mx-auto max-w-7xl px-6">
+                <div class="max-w-3xl mx-auto glass-card rounded-2xl shadow-hover p-8 md:p-12">
+                    <div class="text-center mb-10 animate-fade-in">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">GET IN TOUCH</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Begin Your Journey to Better Mental Health</h2>
+                        <p class="text-neutral max-w-2xl mx-auto">Take the first step towards positive change - schedule your consultation today</p>
+                    </div>
+                    <form class="space-y-6 animate-fade-in delay-200">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-neutral-dark mb-1">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-neutral-dark mb-1">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Your email">
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-neutral-dark mb-1">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Your phone">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-neutral-dark mb-1">Service Interest</label>
+                                <select id="service" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white">
+                                    <option value="" selected disabled>Select a service</option>
+                                    <option value="individual">Individual Therapy</option>
+                                    <option value="couple">Couple Therapy</option>
+                                    <option value="child">Child Counselling</option>
+                                    <option value="psychiatry">Psychiatry & Medication</option>
+                                    <option value="geriatric">Geriatric Mental Health</option>
+                                    <option value="home">Home Counselling</option>
+                                    <option value="online">Online Therapy</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-neutral-dark mb-1">Your Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="consent" class="mr-2">
+                            <label for="consent" class="text-sm text-neutral">I consent to having my information stored and used to be contacted by OmniHealth.</label>
+                        </div>
+                        <button type="submit" class="w-full btn-primary bg-primary text-white py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-soft hover:shadow-hover">
+                            Book Your Session Now
+                        </button>
+                    </form>
+                    <div class="mt-10 pt-10 border-t border-neutral-light/30 text-center">
+                        <p class="text-lg font-medium mb-2">Prefer direct contact?</p>
+                        <a href="mailto:info@omnihealthservices.in" class="text-primary hover:text-primary-dark transition-colors duration-300 block mb-2">info@omnihealthservices.in</a>
+                        <a href="tel:+919876543210" class="text-primary hover:text-primary-dark transition-colors duration-300">+91 98765 43210</a>
+                    </div>
+                </div>
+                <div class="mt-12 glass-card p-8 rounded-xl max-w-5xl mx-auto animate-fade-in delay-300">
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="hover-scale">
+                            <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <h3 class="text-white font-semibold mb-2">Our Location</h3>
+                            <p class="text-white/80">123 Andheri East, Near Metro Station, Mumbai, 400069</p>
+                        </div>
+                        <div class="hover-scale">
+                            <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <h3 class="text-white font-semibold mb-2">Working Hours</h3>
+                            <p class="text-white/80">Monday to Saturday: 9:00 AM - 7:00 PM</p>
+                        </div>
+                        <div class="hover-scale">
+                            <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <h3 class="text-white font-semibold mb-2">Emergency Contact</h3>
+                            <p class="text-white/80">+91 98765 43210 (24/7 Helpline)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-100 py-12">
+    <footer class="bg-neutral-light/50 py-12">
         <div class="container mx-auto max-w-7xl px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">OmniHealth</h3>
-                    <p class="text-gray-600">Leading mental health services in Mumbai</p>
+                    <a href="/" class="text-2xl font-bold text-primary-dark block mb-4">
+                        <span class="text-primary-dark">Omni</span>Health
+                    </a>
+                    <p class="text-neutral mb-4">Leading mental health services in Mumbai</p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook" class="text-neutral hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="text-neutral hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="text-neutral hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="text-neutral hover:text-primary transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                    <p class="text-gray-600">info@omnihealthservices.in</p>
+                    <p class="text-neutral mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
+                        123 Andheri East, Mumbai, 400069
+                    </p>
+                    <p class="text-neutral mb-2">
+                        <i class="fas fa-phone mr-2 text-primary"></i>
+                        +91 98765 43210
+                    </p>
+                    <p class="text-neutral">
+                        <i class="fas fa-envelope mr-2 text-primary"></i>
+                        info@omnihealthservices.in
+                    </p>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Services</a></li>
-                        <li><a href="#benefits" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Benefits</a></li>
-                        <li><a href="#testimonials" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Testimonials</a></li>
-                        <li><a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">About</a></li>
-                        <li><a href="#faq" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Services</a></li>
+                        <li><a href="#benefits" class="text-neutral hover:text-primary transition-colors duration-300">Benefits</a></li>
+                        <li><a href="#testimonials" class="text-neutral hover:text-primary transition-colors duration-300">Testimonials</a></li>
+                        <li><a href="#about" class="text-neutral hover:text-primary transition-colors duration-300">About</a></li>
+                        <li><a href="#faq" class="text-neutral hover:text-primary transition-colors duration-300">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <h3 class="text-lg font-semibold mb-4">Our Services</h3>
                     <ul class="space-y-2">
-                        <li><a href="https://amalanand29.github.io/mental-health-services-in-andheri-east--mumbai-2025-03-02-k634x/privacy.html" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Privacy Policy</a></li>
-                        <li><a href="https://amalanand29.github.io/mental-health-services-in-andheri-east--mumbai-2025-03-02-k634x/terms.html" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Terms of Service</a></li>
-                        <li><a href="https://amalanand29.github.io/mental-health-services-in-andheri-east--mumbai-2025-03-02-k634x/blog.html" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Blog</a></li>
+                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Individual Therapy</a></li>
+                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Couple Therapy</a></li>
+                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Child Counselling</a></li>
+                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Psychiatry Services</a></li>
+                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Home Counselling</a></li>
+                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Online Therapy</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-12 pt-8 border-t border-gray-200 text-center text-gray-600">
+            <div class="mt-12 pt-8 border-t border-neutral-light/50 text-center text-neutral">
                 <p>&copy; 2024 OmniHealth Services. All rights reserved.</p>
+                <p class="mt-2 text-sm">Designed for accessibility and wellness.</p>
             </div>
         </div>
     </footer>
 
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-hover opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
             const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
             const mobileMenu = document.querySelector('header nav .mobile-menu');
             
@@ -261,8 +789,124 @@
                     });
                 });
             }
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            const scrollFunction = () => {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            };
+            
+            window.addEventListener('scroll', scrollFunction);
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+            
+            // Form submission
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message. We will get back to you soon!');
+                    contactForm.reset();
+                });
+            }
+            
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Apply fade-in animations on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate-fade-in');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100 && !element.classList.contains('fade-in-visible')) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                        element.classList.add('fade-in-visible');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('load', animateOnScroll);
+            
+            // Add schema.org structured data for SEO
+            const jsonLd = {
+                "@context": "https://schema.org",
+                "@type": "MedicalBusiness",
+                "name": "OmniHealth Mental Health Services",
+                "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+                "url": "https://omnihealthservices.in",
+                "telephone": "+919876543210",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "123 Andheri East",
+                    "addressLocality": "Mumbai",
+                    "postalCode": "400069",
+                    "addressCountry": "IN"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 19.1136,
+                    "longitude": 72.8697
+                },
+                "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                    ],
+                    "opens": "09:00",
+                    "closes": "19:00"
+                },
+                "sameAs": [
+                    "https://www.facebook.com/omnihealthservices",
+                    "https://www.instagram.com/omnihealthservices",
+                    "https://twitter.com/omnihealthmumbai"
+                ],
+                "medicalSpecialty": [
+                    "Individual Therapy",
+                    "Couple Therapy", 
+                    "Child Counselling",
+                    "Psychiatry",
+                    "Geriatric Mental Health",
+                    "Home Counselling",
+                    "Online Therapy"
+                ]
+            };
+            
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.text = JSON.stringify(jsonLd);
+            document.head.appendChild(script);
         });
     </script>
-</body>
 </body>
 </html>
