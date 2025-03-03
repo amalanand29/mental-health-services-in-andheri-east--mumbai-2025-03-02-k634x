@@ -1,1 +1,110 @@
-
+<style>
+        :root {
+            --pastel-blue: #A7C7E7;
+            --pastel-green: #B5EAD7;
+            --pastel-yellow: #FFDAC1;
+            --pastel-pink: #FFB7B2;
+            --pastel-purple: #C7CEEA;
+            --pastel-mint: #98D7C2;
+            --dark-blue: #3A506B;
+        }
+        .blurred {
+    filter: blur(5px);
+}
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .radial-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .radial-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, var(--pastel-blue), transparent 40%),
+                         radial-gradient(circle at 70% 60%, var(--pastel-purple), transparent 30%),
+                         radial-gradient(circle at 90% 10%, var(--pastel-mint), transparent 45%),
+                         radial-gradient(circle at 10% 80%, var(--pastel-pink), transparent 35%);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .bento-box {
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .bento-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(to right, var(--pastel-blue), var(--pastel-purple));
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .service-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+        
+        .fc-event {
+            cursor: pointer;
+        }
+        
+        .breadcrumb-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background-color: #f3f4f6;
+            color: #4b5563;
+        }
+        
+        .breadcrumb-item.active {
+            background-color: var(--pastel-blue);
+            color: #1f2937;
+        }
+    </style>
