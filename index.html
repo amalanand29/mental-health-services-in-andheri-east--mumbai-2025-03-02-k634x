@@ -730,18 +730,34 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButtons.forEach(button => {
     button.addEventListener('click', () => {
         const activeStep = document.querySelector('.form-step.active');
-        const selectedOption = activeStep.querySelector('.option-btn.bg-pastel-blue');
-        
-        if (selectedOption) {
-            if (currentStep < totalSteps) {
-                currentStep++;
-                updateStep();
+
+        // If in Step 5 (date & time selection), check input fields instead of option buttons
+        if (activeStep.dataset.step === "5") {
+            const selectedDate = document.getElementById("appointment-date").value;
+            const selectedTime = document.getElementById("appointment-time").value;
+
+            if (!selectedDate || !selectedTime) {
+                alert("Please select a date and time to proceed.");
+                return;
             }
         } else {
-            alert('Please select an option to proceed.');
+            // For other steps, check if an option is selected
+            const selectedOption = activeStep.querySelector('.option-btn.bg-pastel-blue');
+
+            if (!selectedOption) {
+                alert("Please select an option to proceed.");
+                return;
+            }
+        }
+
+        // Proceed to the next step if all conditions are met
+        if (currentStep < totalSteps) {
+            currentStep++;
+            updateStep();
         }
     });
 });
+
 
     prevButtons.forEach(button => {
         button.addEventListener('click', () => {
