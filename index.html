@@ -810,7 +810,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-        <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bookingModal = document.getElementById("booking-modal");
+    const bookingForm = document.getElementById("booking-form");
+
+    // Initialize FullCalendar
+    const calendarEl = document.getElementById('calendar');
+    if (calendarEl) {
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            validRange: {
+                start: new Date(),
+                end: new Date(new Date().setDate(new Date().getDate() + 45))
+            },
+            select: function(info) {
+                bookingForm.classList.remove('hidden'); // Show the form after selecting a date
+            }
+        });
+        calendar.render();
+    }
+
+    window.openBookingModal = function() {
+        bookingModal.classList.remove("hidden");
+    };
+
+    window.closeBookingModal = function() {
+        bookingModal.classList.add("hidden");
+        bookingForm.classList.add('hidden'); // Reset form visibility
+    };
+});
+</script>
+        1 reference
+The calendar is not popping up because the modal structure and event handling JavaScript are missing or incorrectly implemented. Here are the steps to resolve this issue:
+
+1. Insert Modal HTML Structure
+Insert before line 813 in your index.html file.
+HTML
+<div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
     <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
         <h2 class="text-2xl font-bold mb-4">Select a Date & Time</h2>
         
@@ -831,6 +869,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <button onclick="closeBookingModal()" class="mt-4 text-red-500">Cancel</button>
     </div>
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const bookingModal = document.getElementById("booking-modal");
