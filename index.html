@@ -917,24 +917,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 </script>
-</script>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Ensure Flatpickr initializes correctly on the popup inputs
-    flatpickr("#appointment-date-popup", {
-        dateFormat: "Y-m-d",
-        minDate: "today" // Prevents past dates from being selected
-    });
-
-    flatpickr("#appointment-time-popup", {
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "h:i K", // 12-hour format with AM/PM
-        time_24hr: false
-    });
-});
-</script>
-
     <div id="popup-form" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex items-center justify-center z-50">
     <div class="bg-white p-8 rounded-lg shadow-lg relative w-full max-w-lg">
         <button id="close-popup" class="absolute top-2 right-2 text-gray-600 hover:text-gray-900">
@@ -978,5 +960,42 @@ document.getElementById('close-popup').addEventListener('click', function() {
 });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Flatpickr for the main form (Booking Section)
+    if (document.getElementById("appointment-date")) {
+        flatpickr("#appointment-date", {
+            dateFormat: "Y-m-d",
+            minDate: "today" // Disable past dates
+        });
+    }
+
+    if (document.getElementById("appointment-time")) {
+        flatpickr("#appointment-time", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "h:i K", // 12-hour format with AM/PM
+            time_24hr: false
+        });
+    }
+
+    // Initialize Flatpickr for the popup form (Book Now Popup)
+    if (document.getElementById("appointment-date-popup")) {
+        flatpickr("#appointment-date-popup", {
+            dateFormat: "Y-m-d",
+            minDate: "today"
+        });
+    }
+
+    if (document.getElementById("appointment-time-popup")) {
+        flatpickr("#appointment-time-popup", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "h:i K",
+            time_24hr: false
+        });
+    }
+});
+</script>
 
 </body>
