@@ -723,13 +723,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     nextButtons.forEach(button => {
-        button.addEventListener('click', () => {
+    button.addEventListener('click', () => {
+        const activeStep = document.querySelector('.form-step.active');
+        const selectedOption = activeStep.querySelector('.option-btn.bg-pastel-blue');
+        
+        if (selectedOption) {
             if (currentStep < totalSteps) {
                 currentStep++;
                 updateStep();
             }
-        });
+        } else {
+            alert('Please select an option to proceed.');
+        }
     });
+});
 
     prevButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -741,15 +748,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function handleOptionClick(event) {
-        const button = event.currentTarget;
-        const parentStep = button.closest('.form-step');
-        const allOptions = parentStep.querySelectorAll('.option-btn');
+    const button = event.currentTarget;
+    const parentStep = button.closest('.form-step');
+    const allOptions = parentStep.querySelectorAll('.option-btn');
 
-        allOptions.forEach(opt => opt.classList.remove('bg-pastel-blue', 'border-pastel-blue', 'border'));
-        button.classList.add('bg-pastel-blue', 'border-pastel-blue');
-        
-        updateDynamicOptions(parentStep.getAttribute('data-step'), button.getAttribute('data-value'));
+    allOptions.forEach(opt => opt.classList.remove('bg-pastel-blue', 'border-pastel-blue', 'border'));
+    button.classList.add('bg-pastel-blue', 'border-pastel-blue');
+    
+    updateDynamicOptions(parentStep.getAttribute('data-step'), button.getAttribute('data-value'));
+
+    // Automatically go to the next step
+    if (currentStep < totalSteps) {
+        currentStep++;
+        updateStep();
     }
+}
 
     function updateDynamicOptions(step, value) {
         if (step === '1') {
@@ -800,7 +813,14 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth'
+        initialView: 'timeGridWeek',
+        selectable: true,
+        select: function(info) {
+            var timeSlot = document.createElement('div');
+            timeSlot.textContent = `Selected: ${info.startStr} to ${info.endStr}`;
+            document.getElementById('available-times').appendChild(timeSlot);
+            document.getElementById('available-times').classList.remove('hidden');
+        }
     });
     calendar.render();
 });
