@@ -154,8 +154,10 @@
                     <a href="tel:09653677486" class="flex items-center px-4 py-2 rounded-full bg-pastel-blue text-dark-blue hover:bg-pastel-purple transition-all duration-300">
                         <i class="fas fa-phone-alt mr-2"></i> Call Now
                     </a>
-                    <a href="#book-appointment" class="flex items-center px-4 py-2 rounded-full bg-dark-blue text-white hover:bg-opacity-90 transition-all duration-300">
-                        <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+                    <a <a href="#" onclick="openBookingModal()" class="flex items-center px-4 py-2 rounded-full bg-dark-blue text-white hover:bg-opacity-90 transition-all duration-300">
+    <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+</a>
+
                     </a>
                 </div>
                 <button class="mobile-menu-button md:hidden" aria-label="Toggle menu">
@@ -923,6 +925,55 @@
                 });
             });
         });
+        <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-4">Select a Date & Time</h2>
+        
+        <div id="calendar"></div>
+
+        <form id="booking-form" class="mt-6 hidden">
+            <label class="block mb-2">Full Name <span class="text-red-500">*</span></label>
+            <input type="text" id="name" class="w-full p-2 border rounded mb-4" required>
+
+            <label class="block mb-2">Email <span class="text-red-500">*</span></label>
+            <input type="email" id="email" class="w-full p-2 border rounded mb-4" required>
+
+            <label class="block mb-2">Phone <span class="text-red-500">*</span></label>
+            <input type="tel" id="phone" class="w-full p-2 border rounded mb-4" required>
+
+            <button type="submit" class="bg-dark-blue text-white py-2 px-4 rounded">Confirm Booking</button>
+        </form>
+
+        <button onclick="closeBookingModal()" class="mt-4 text-red-500">Cancel</button>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bookingModal = document.getElementById("booking-modal");
+    const bookingForm = document.getElementById("booking-form");
+
+    // Initialize FullCalendar
+    const calendarEl = document.getElementById('calendar');
+    if (calendarEl) {
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            select: function(info) {
+                bookingForm.classList.remove('hidden'); // Show the form after selecting a date
+            }
+        });
+        calendar.render();
+    }
+
+    window.openBookingModal = function() {
+        bookingModal.classList.remove("hidden");
+    };
+
+    window.closeBookingModal = function() {
+        bookingModal.classList.add("hidden");
+        bookingForm.classList.add('hidden'); // Reset form visibility
+    };
+});
     </script>
 </body>
 </html>
