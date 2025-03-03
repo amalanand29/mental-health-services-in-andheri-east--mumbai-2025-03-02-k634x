@@ -3,167 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniHealth - Professional Mental Health Services in Andheri East, Mumbai</title>
-    <meta name="description" content="Expert therapy services in Andheri East, Mumbai including individual therapy, couple counseling, child counseling, psychiatry, geriatric care, home counselling, and online sessions.">
-    <meta name="keywords" content="mental health mumbai, therapy andheri east, psychiatrist mumbai, couple therapy, child counseling, geriatric mental health, home counselling, online therapy">
-    <meta name="author" content="OmniHealth Services">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="OmniHealth - Mental Health Services in Andheri East, Mumbai">
-    <meta property="og:description" content="Expert therapy and psychiatry services in Andheri East, Mumbai. Offering individual, couple, child, geriatric counseling, home counselling, and online therapy.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
-    <meta property="og:url" content="https://omnihealthservices.in">
-    <meta name="twitter:card" content="summary_large_image">
+    <title>Omni Health Services - Mental Health Clinic in Andheri East, Mumbai</title>
+    <meta name="description" content="Leading mental health services in Andheri East, Mumbai with 18+ years of experience. Therapy, psychiatry, counseling for depression, anxiety, ADHD, OCD, and more.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            light: '#D3E4FD',
-                            DEFAULT: '#2A7DE1',
-                            dark: '#1D56A0'
-                        },
-                        secondary: {
-                            light: '#F2FCE2',
-                            DEFAULT: '#8FB573',
-                            dark: '#5D7B4A'
-                        },
-                        neutral: {
-                            light: '#F1F0FB',
-                            DEFAULT: '#8E9196',
-                            dark: '#4A4B53'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',
-                        'hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
-                    },
-                    animation: {
-                        'float': 'float 8s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': {
-                                transform: 'translateY(0)',
-                            },
-                            '50%': {
-                                transform: 'translateY(-20px)',
-                            },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
     <style>
+        :root {
+            --pastel-blue: #A7C7E7;
+            --pastel-green: #B5EAD7;
+            --pastel-yellow: #FFDAC1;
+            --pastel-pink: #FFB7B2;
+            --pastel-purple: #C7CEEA;
+            --pastel-mint: #98D7C2;
+            --dark-blue: #3A506B;
+        }
+        
         html {
             scroll-behavior: smooth;
         }
         
         body {
-    background: #ffffff;
-    position: relative;
-}
-
-/* Multiple blurred radial spots */
-.background-spot {
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.45;
-    z-index: -1;
-}
-
-/* Adjusted color balance for a calming effect */
-.spot1 { background: rgba(100, 180, 255, 0.6); top: 5%; left: 5%; }
-.spot2 { background: rgba(80, 190, 230, 0.6); top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.spot3 { background: rgba(120, 220, 255, 0.5); bottom: 5%; right: 5%; }
-.spot4 { background: rgba(90, 200, 240, 0.6); top: 20%; right: 5%; }
-.spot5 { background: rgba(100, 210, 255, 0.5); bottom: 20%; left: 5%; }
-.spot6 { background: rgba(80, 180, 230, 0.5); bottom: 70%; right: 40%; }
-.spot7 { background: rgba(90, 190, 255, 0.6); top: 85%; left: 10%; }
-.spot8 { background: rgba(70, 160, 220, 0.6); top: 10%; right: 40%; }
-
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
         }
         
-       .glass-card {
-    background: #ffffff !important; /* Make background solid white */
-    border: 1px solid rgba(200, 200, 200, 0.3);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
-}
-
-   
-        }
-        
-        .btn-primary {
+        .radial-bg {
             position: relative;
             overflow: hidden;
-            z-index: 1;
-            transition: all 0.4s ease;
         }
         
-        .btn-primary::before {
+        .radial-bg::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: all 0.6s ease;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, var(--pastel-blue), transparent 40%),
+                         radial-gradient(circle at 70% 60%, var(--pastel-purple), transparent 30%),
+                         radial-gradient(circle at 90% 10%, var(--pastel-mint), transparent 45%),
+                         radial-gradient(circle at 10% 80%, var(--pastel-pink), transparent 35%);
+            opacity: 0.5;
             z-index: -1;
         }
         
-        .btn-primary:hover::before {
-            left: 100%;
+        .bento-box {
+            border-radius: 24px;
+            transition: all 0.3s ease;
         }
         
-        .testimonial-card {
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border-left: 4px solid transparent;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px) scale(1.01);
-            border-left-color: #2A7DE1;
-        }
-        
-        .service-card {
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border-top: 4px solid transparent;
-        }
-        
-        .service-card:hover {
+        .bento-box:hover {
             transform: translateY(-5px);
-            border-top-color: #2A7DE1;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        .nav-link {
-            position: relative;
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(to right, var(--pastel-blue), var(--pastel-purple));
         }
         
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #2A7DE1;
-            transition: width 0.3s ease;
+        .form-step {
+            display: none;
         }
         
-        .nav-link:hover::after {
-            width: 100%;
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
         }
         
         @keyframes fadeIn {
@@ -171,357 +79,476 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .animate-fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s ease forwards;
-        }
-        
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-        
-        .mask-gradient {
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        }
-        
-        .blur-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(70px);
-            z-index: -1;
-            opacity: 0.4;
-            animation: pulse-slow 8s infinite;
-        }
-        
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
-        }
-        
-        .benefit-icon {
-            transition: all 0.5s ease;
-        }
-        
-        .benefit-item:hover .benefit-icon {
-            transform: scale(1.1) rotate(5deg);
-            color: #2A7DE1;
-        }
-        
-        .faq-item {
-            transition: all 0.3s ease;
-            border-left: 0px solid #2A7DE1;
-        }
-        
-        .faq-item:hover {
-            border-left-width: 4px;
-            padding-left: calc(1.5rem - 4px);
-        }
-        
-        #back-to-top {
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
-            animation: pulse 2s infinite;
-        }
-        
-        #back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .contact-form-wrapper {
-    background: #ffffff !important; /* Keep the background solid white */
-    position: relative;
-    overflow: visible;
-}
-.contact-form-wrapper::before {
-    display: none !important; /* Disable the shimmer effect */
-}
-
-        
-        
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-        
-        .text-shadow-sm {
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .service-icon {
-            transition: all 0.5s ease;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
         
-        .service-card:hover .service-icon {
-            transform: translateY(-5px);
-            color: #2A7DE1;
+        .fc-event {
+            cursor: pointer;
+        }
+        
+        .breadcrumb-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background-color: #f3f4f6;
+            color: #4b5563;
+        }
+        
+        .breadcrumb-item.active {
+            background-color: var(--pastel-blue);
+            color: #1f2937;
         }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pastel-blue': '#A7C7E7',
+                        'pastel-green': '#B5EAD7',
+                        'pastel-yellow': '#FFDAC1',
+                        'pastel-pink': '#FFB7B2',
+                        'pastel-purple': '#C7CEEA',
+                        'pastel-mint': '#98D7C2',
+                        'dark-blue': '#3A506B',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="font-sans antialiased text-neutral-dark overflow-x-hidden">
-    <!-- Decorative blurred blobs -->
-    <div class="blur-blob bg-primary-light w-[600px] h-[600px] top-[5%] left-[-200px]"></div>
-    <div class="blur-blob bg-blue-200 w-[700px] h-[700px] top-[60%] right-[-250px]"></div>
-    <div class="blur-blob bg-sky-100 w-[500px] h-[500px] top-[30%] left-[60%]"></div>
-
-    <header class="fixed w-full bg-white/80 backdrop-blur-md shadow-soft z-50">
-        <nav class="container mx-auto px-6 py-3">
+<body class="bg-gray-50 text-gray-900">
+    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="/" class="text-2xl font-bold text-primary hover:text-primary-dark transition-colors duration-300 flex items-center">
-                    <span class="text-primary-dark">Omni</span>Health
-                    <span class="ml-2 bg-primary-light text-primary text-xs px-2 py-1 rounded-full">Mumbai</span>
+                <a href="#" class="text-2xl font-bold text-dark-blue hover:text-pastel-blue transition-colors duration-300">
+                    <span class="text-pastel-blue">Omni</span>Health
                 </a>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#services" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">Services</a>
-                    <a href="#benefits" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">Benefits</a>
-                    <a href="#testimonials" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">Testimonials</a>
-                    <a href="#about" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">About</a>
-                    <a href="#faq" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">FAQ</a>
-                    <a href="#contact" class="nav-link text-neutral hover:text-primary-dark transition-colors duration-300">Contact</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-600 hover:text-pastel-blue transition-colors duration-300">Services</a>
+                    <a href="#about" class="text-gray-600 hover:text-pastel-blue transition-colors duration-300">About</a>
+                    <a href="#team" class="text-gray-600 hover:text-pastel-blue transition-colors duration-300">Our Team</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-pastel-blue transition-colors duration-300">Testimonials</a>
+                    <a href="#faq" class="text-gray-600 hover:text-pastel-blue transition-colors duration-300">FAQ</a>
+                    <a href="#contact" class="text-gray-600 hover:text-pastel-blue transition-colors duration-300">Contact</a>
                 </div>
-                <a href="#contact" class="hidden md:inline-block px-5 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors duration-300 shadow-soft">Book Now</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="tel:09653677486" class="flex items-center px-4 py-2 rounded-full bg-pastel-blue text-dark-blue hover:bg-pastel-purple transition-all duration-300">
+                        <i class="fas fa-phone-alt mr-2"></i> Call Now
+                    </a>
+                    <a href="#book-appointment" class="flex items-center px-4 py-2 rounded-full bg-dark-blue text-white hover:bg-opacity-90 transition-all duration-300">
+                        <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+                    </a>
+                </div>
                 <button class="mobile-menu-button md:hidden" aria-label="Toggle menu">
-                    <i class="fas fa-bars text-2xl text-neutral-dark"></i>
+                    <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-            <div class="mobile-menu hidden md:hidden mt-4 bg-white/95 rounded-lg shadow-soft absolute left-4 right-4 p-4 z-50">
-                <a href="#services" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">Services</a>
-                <a href="#benefits" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">Benefits</a>
-                <a href="#testimonials" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">Testimonials</a>
-                <a href="#about" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">About</a>
-                <a href="#faq" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">FAQ</a>
-                <a href="#contact" class="block py-2 px-4 text-neutral hover:bg-primary-light hover:text-primary-dark rounded transition-colors duration-300">Contact</a>
-                <a href="#contact" class="block mt-2 text-center py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors duration-300">Book Now</a>
+            <div class="mobile-menu hidden md:hidden mt-4 bg-white rounded-lg shadow-lg absolute left-0 right-0 p-4">
+                <a href="#services" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">Services</a>
+                <a href="#about" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">About</a>
+                <a href="#team" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">Our Team</a>
+                <a href="#testimonials" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">Testimonials</a>
+                <a href="#faq" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">FAQ</a>
+                <a href="#contact" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded transition-colors duration-300">Contact</a>
+                <div class="mt-4 flex flex-col space-y-2">
+                    <a href="tel:09653677486" class="flex items-center justify-center px-4 py-2 rounded-full bg-pastel-blue text-dark-blue hover:bg-pastel-purple transition-all duration-300">
+                        <i class="fas fa-phone-alt mr-2"></i> Call Now
+                    </a>
+                    <a href="#book-appointment" class="flex items-center justify-center px-4 py-2 rounded-full bg-dark-blue text-white hover:bg-opacity-90 transition-all duration-300">
+                        <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="pt-32 pb-24 px-6 relative">
+        <section class="pt-32 pb-24 px-6 radial-bg">
             <div class="container mx-auto max-w-7xl">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="animate-fade-in">
-                        <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">TRUSTED MENTAL HEALTH CARE</span>
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-dark mb-6 leading-tight text-shadow-sm">Transform Your Mental Well-being in <span class="text-primary">Andheri East</span></h1>
-                        <p class="text-lg md:text-xl text-neutral mb-8 max-w-xl leading-relaxed">Experience comprehensive mental health care with our team of expert therapists and psychiatrists. Personalized treatment plans designed for lasting positive change.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#contact" class="btn-primary inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-soft hover:shadow-hover">Schedule Free Consultation</a>
-                            <a href="#about" class="inline-block px-8 py-4 rounded-lg font-semibold border border-neutral/20 hover:border-primary hover:text-primary transition-all duration-300 hover:shadow-soft">Learn More</a>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-blue mb-6 leading-tight">Transform Your Mental Well-being in Andheri East</h1>
+                        <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl leading-relaxed">Experience comprehensive mental health care with our team of expert therapists and psychiatrists. Personalized treatment plans designed for lasting positive change.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="tel:09653677486" class="flex items-center justify-center px-6 py-4 rounded-full bg-pastel-blue text-dark-blue hover:bg-pastel-purple transition-all duration-300 shadow-lg">
+                                <i class="fas fa-phone-alt mr-2"></i> Call: 096536 77486
+                            </a>
+                            <a href="#book-appointment" class="flex items-center justify-center px-6 py-4 rounded-full bg-dark-blue text-white hover:bg-opacity-90 transition-all duration-300 shadow-lg">
+                                <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+                            </a>
+                        </div>
+                        <div class="mt-8 flex items-center text-gray-600">
+                            <div class="flex items-center mr-6">
+                                <i class="far fa-clock mr-2 text-pastel-blue"></i>
+                                <span>Open 10am - 8pm</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2 text-pastel-pink"></i>
+                                <span>Andheri East, Mumbai</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="hidden md:block rounded-2xl overflow-hidden shadow-hover animate-fade-in delay-200 relative group">
-                        <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Mental health professional in consultation" class="w-full h-auto rounded-2xl hover:scale-105 transition-transform duration-700 object-cover">
-                    </div>
-                </div>
-                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in delay-300">
-                    <div class="glass-card p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
-                        <p class="text-3xl font-bold text-primary">10+</p>
-                        <p class="text-neutral">Years Experience</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
-                        <p class="text-3xl font-bold text-primary">2000+</p>
-                        <p class="text-neutral">Clients Helped</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
-                        <p class="text-3xl font-bold text-primary">15+</p>
-                        <p class="text-neutral">Specialists</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl text-center hover:scale-105 transition-all duration-300">
-                        <p class="text-3xl font-bold text-primary">4.9</p>
-                        <p class="text-neutral">Star Rating</p>
+                    <div class="glass-card p-8 rounded-3xl shadow-xl">
+                        <div id="appointment-form-container">
+                            <h2 class="text-2xl font-bold mb-6 text-center text-dark-blue">Book Your Consultation</h2>
+                            
+                            <div class="breadcrumb mb-6 flex flex-wrap justify-center">
+                                <div class="breadcrumb-item active" data-step="1">
+                                    <span>1. Who</span>
+                                </div>
+                                <div class="breadcrumb-item" data-step="2">
+                                    <span>2. Service</span>
+                                </div>
+                                <div class="breadcrumb-item" data-step="3">
+                                    <span>3. Concerns</span>
+                                </div>
+                                <div class="breadcrumb-item" data-step="4">
+                                    <span>4. Schedule</span>
+                                </div>
+                                <div class="breadcrumb-item" data-step="5">
+                                    <span>5. Details</span>
+                                </div>
+                            </div>
+                            
+                            <div class="progress mb-6">
+                                <div class="progress-bar" style="width: 20%"></div>
+                            </div>
+                            
+                            <form id="appointment-form" class="space-y-6">
+                                <div class="form-step active" data-step="1">
+                                    <h3 class="text-lg font-medium mb-4">Who is the session for?</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="self">
+                                            <i class="fas fa-user text-pastel-blue mr-2"></i> Myself
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="child">
+                                            <i class="fas fa-child text-pastel-green mr-2"></i> My Child
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="partner">
+                                            <i class="fas fa-heart text-pastel-pink mr-2"></i> My Partner
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="family">
+                                            <i class="fas fa-users text-pastel-purple mr-2"></i> Family Member
+                                        </button>
+                                    </div>
+                                    <div class="mt-6 flex justify-end">
+                                        <button type="button" class="next-btn px-6 py-2 bg-dark-blue text-white rounded-full hover:bg-opacity-90 transition-all">Next</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-step" data-step="2">
+                                    <h3 class="text-lg font-medium mb-4">What service are you looking for?</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="individual">
+                                            <i class="fas fa-user-friends text-pastel-blue mr-2"></i> Individual Therapy
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="couple">
+                                            <i class="fas fa-heart text-pastel-pink mr-2"></i> Couple Therapy
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="child">
+                                            <i class="fas fa-child text-pastel-green mr-2"></i> Child Counselling
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="psychiatry">
+                                            <i class="fas fa-pills text-pastel-purple mr-2"></i> Psychiatry & Medication
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="geriatric">
+                                            <i class="fas fa-user-plus text-pastel-yellow mr-2"></i> Geriatric Mental Health
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="home">
+                                            <i class="fas fa-home text-pastel-mint mr-2"></i> Home Counselling
+                                        </button>
+                                    </div>
+                                    <div class="mt-6 flex justify-between">
+                                        <button type="button" class="prev-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-all">Previous</button>
+                                        <button type="button" class="next-btn px-6 py-2 bg-dark-blue text-white rounded-full hover:bg-opacity-90 transition-all">Next</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-step" data-step="3">
+                                    <h3 class="text-lg font-medium mb-4">What are your primary concerns?</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="anxiety">
+                                            <i class="fas fa-wind text-pastel-blue mr-2"></i> Anxiety
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="depression">
+                                            <i class="fas fa-cloud-rain text-pastel-purple mr-2"></i> Depression
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="stress">
+                                            <i class="fas fa-bolt text-pastel-yellow mr-2"></i> Stress
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="relationships">
+                                            <i class="fas fa-heart-broken text-pastel-pink mr-2"></i> Relationship Issues
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="trauma">
+                                            <i class="fas fa-brain text-pastel-mint mr-2"></i> Trauma
+                                        </button>
+                                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="other">
+                                            <i class="fas fa-plus text-pastel-green mr-2"></i> Other
+                                        </button>
+                                    </div>
+                                    <div class="mt-6 flex justify-between">
+                                        <button type="button" class="prev-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-all">Previous</button>
+                                        <button type="button" class="next-btn px-6 py-2 bg-dark-blue text-white rounded-full hover:bg-opacity-90 transition-all">Next</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-step" data-step="4">
+                                    <h3 class="text-lg font-medium mb-4">Select a date and time</h3>
+                                    <div id="calendar" class="mb-4"></div>
+                                    <div id="available-times" class="grid grid-cols-3 gap-2 mt-4 hidden">
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="10:00">10:00 AM</button>
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="11:00">11:00 AM</button>
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="12:00">12:00 PM</button>
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="14:00">2:00 PM</button>
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="15:00">3:00 PM</button>
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="16:00">4:00 PM</button>
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="17:00">5:00 PM</button>
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="18:00">6:00 PM</button>
+                                        <button type="button" class="time-slot px-4 py-2 border rounded-lg text-center hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-time="19:00">7:00 PM</button>
+                                    </div>
+                                    <div class="mt-6 flex justify-between">
+                                        <button type="button" class="prev-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-all">Previous</button>
+                                        <button type="button" class="next-btn px-6 py-2 bg-dark-blue text-white rounded-full hover:bg-opacity-90 transition-all">Next</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-step" data-step="5">
+                                    <h3 class="text-lg font-medium mb-4">Your Contact Information</h3>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
+                                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all">
+                                        </div>
+                                        <div>
+                                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
+                                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all">
+                                        </div>
+                                        <div>
+                                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
+                                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all">
+                                        </div>
+                                        <div>
+                                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Additional Information</label>
+                                            <textarea id="message" name="message" rows="3" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mt-6 flex justify-between">
+                                        <button type="button" class="prev-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-all">Previous</button>
+                                        <button type="submit" class="px-6 py-2 bg-dark-blue text-white rounded-full hover:bg-opacity-90 transition-all">Book Appointment</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="appointment-success" class="hidden text-center py-8">
+                            <div class="text-6xl text-pastel-green mb-4">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2">Appointment Booked!</h3>
+                            <p class="text-gray-600 mb-6">We've sent a confirmation to your email with all the details.</p>
+                            <p class="font-medium">Looking forward to seeing you soon!</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="py-24 relative">
+        <section id="services" class="py-24 bg-white">
             <div class="container mx-auto max-w-7xl px-6">
-                <div class="text-center mb-16 animate-fade-in">
-                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">OUR SERVICES</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Comprehensive Mental Health Services</h2>
-                    <p class="text-neutral max-w-3xl mx-auto">Tailored approaches to address your unique mental health needs with evidence-based treatments</p>
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark-blue">Our Comprehensive Mental Health Services</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Personalized care for your unique mental health journey with evidence-based approaches.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-100">
-                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
-                            <i class="fas fa-user text-xl text-primary service-icon"></i>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="service-icon bg-pastel-blue text-dark-blue">
+                            <i class="fas fa-user-friends"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Individual Therapy</h3>
-                        <p class="text-neutral">One-on-one sessions with licensed therapists for anxiety, depression, trauma, and other mental health concerns.</p>
-                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
-                            <p class="text-primary font-medium">Starting at ₹1000 per session</p>
-                        </div>
+                        <p class="text-gray-600 mb-6">One-on-one sessions with our expert therapists to address personal challenges, develop coping strategies, and achieve mental wellness.</p>
+                        <a href="#book-appointment" class="inline-block px-4 py-2 bg-pastel-blue text-dark-blue rounded-full hover:bg-pastel-purple transition-all duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
-                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-200">
-                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
-                            <i class="fas fa-user-friends text-xl text-primary service-icon"></i>
+                    
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="service-icon bg-pastel-pink text-dark-blue">
+                            <i class="fas fa-heart"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Couple Therapy</h3>
-                        <p class="text-neutral">Relationship counseling to improve communication, resolve conflicts, and strengthen emotional bonds between partners.</p>
-                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
-                            <p class="text-primary font-medium">Starting at ₹1500 per session</p>
-                        </div>
+                        <p class="text-gray-600 mb-6">Strengthen your relationship with guided sessions that improve communication, resolve conflicts, and deepen emotional connection.</p>
+                        <a href="#book-appointment" class="inline-block px-4 py-2 bg-pastel-pink text-dark-blue rounded-full hover:bg-pastel-purple transition-all duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
-                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-300">
-                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
-                            <i class="fas fa-child text-xl text-primary service-icon"></i>
+                    
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="service-icon bg-pastel-green text-dark-blue">
+                            <i class="fas fa-child"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Child Counselling</h3>
-                        <p class="text-neutral">Specialized support for children facing behavioral issues, anxiety, learning difficulties, or emotional challenges.</p>
-                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
-                            <p class="text-primary font-medium">Starting at ₹1200 per session</p>
-                        </div>
+                        <p class="text-gray-600 mb-6">Specialized support for children facing emotional, behavioral, or developmental challenges in a safe, nurturing environment.</p>
+                        <a href="#book-appointment" class="inline-block px-4 py-2 bg-pastel-green text-dark-blue rounded-full hover:bg-pastel-purple transition-all duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
-                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-100">
-                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
-                            <i class="fas fa-pills text-xl text-primary service-icon"></i>
+                    
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="service-icon bg-pastel-purple text-dark-blue">
+                            <i class="fas fa-pills"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Psychiatry & Medication</h3>
-                        <p class="text-neutral">Expert psychiatric evaluation, diagnosis, and medication management for mental health disorders requiring clinical intervention.</p>
-                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
-                            <p class="text-primary font-medium">Starting at ₹1800 per consultation</p>
-                        </div>
+                        <p class="text-gray-600 mb-6">Professional psychiatric evaluation and medication management for conditions requiring pharmacological intervention.</p>
+                        <a href="#book-appointment" class="inline-block px-4 py-2 bg-pastel-purple text-dark-blue rounded-full hover:bg-pastel-purple transition-all duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
-                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-200">
-                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
-                            <i class="fas fa-user-md text-xl text-primary service-icon"></i>
+                    
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="service-icon bg-pastel-yellow text-dark-blue">
+                            <i class="fas fa-user-plus"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Geriatric Mental Health</h3>
-                        <p class="text-neutral">Specialized care for elderly individuals dealing with age-related mental health concerns, including memory issues and depression.</p>
-                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
-                            <p class="text-primary font-medium">Starting at ₹1300 per session</p>
-                        </div>
+                        <p class="text-gray-600 mb-6">Compassionate care for older adults addressing age-related mental health concerns, cognitive changes, and emotional well-being.</p>
+                        <a href="#book-appointment" class="inline-block px-4 py-2 bg-pastel-yellow text-dark-blue rounded-full hover:bg-pastel-purple transition-all duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
-                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-300">
-                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
-                            <i class="fas fa-home text-xl text-primary service-icon"></i>
+                    
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="service-icon bg-pastel-mint text-dark-blue">
+                            <i class="fas fa-home"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Home Counselling</h3>
-                        <p class="text-neutral">Professional therapy sessions conducted in the comfort of your own home, particularly beneficial for those with mobility limitations.</p>
-                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
-                            <p class="text-primary font-medium">Starting at ₹1600 per session</p>
-                        </div>
-                    </div>
-                    <div class="service-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-300 md:col-start-2">
-                        <div class="w-14 h-14 bg-primary-light rounded-lg flex items-center justify-center mb-6">
-                            <i class="fas fa-laptop-medical text-xl text-primary service-icon"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Online Therapy</h3>
-                        <p class="text-neutral">Convenient virtual sessions providing the same quality of care as in-person therapy, accessible from the comfort of your home.</p>
-                        <div class="mt-8 pt-4 border-t border-neutral-light/50">
-                            <p class="text-primary font-medium">Starting at ₹900 per session</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-12 animate-fade-in delay-400">
-                    <a href="#contact" class="btn-primary inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-soft hover:shadow-hover">Book Your First Session</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="benefits" class="py-24 relative">
-            <div class="container mx-auto max-w-7xl px-6">
-                <div class="text-center mb-16 animate-fade-in">
-                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">WHY CHOOSE US</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Life-Changing Benefits</h2>
-                    <p class="text-neutral max-w-3xl mx-auto">Our approach is designed to provide lasting transformation, not just temporary relief</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="benefit-item text-center animate-fade-in delay-100 glass-card p-8 rounded-xl hover:shadow-hover">
-                        <div class="mb-6 bg-primary-light/50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
-                            <i class="fas fa-heart text-3xl text-primary benefit-icon"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Find Inner Peace</h3>
-                        <p class="text-neutral">Develop effective coping strategies and mindfulness techniques for lasting emotional balance.</p>
-                    </div>
-                    <div class="benefit-item text-center animate-fade-in delay-200 glass-card p-8 rounded-xl hover:shadow-hover">
-                        <div class="mb-6 bg-primary-light/50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
-                            <i class="fas fa-brain text-3xl text-primary benefit-icon"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Gain Mental Clarity</h3>
-                        <p class="text-neutral">Break through mental blocks and achieve deeper self-understanding for better decision-making.</p>
-                    </div>
-                    <div class="benefit-item text-center animate-fade-in delay-300 glass-card p-8 rounded-xl hover:shadow-hover">
-                        <div class="mb-6 bg-primary-light/50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
-                            <i class="fas fa-star text-3xl text-primary benefit-icon"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Thrive in Life</h3>
-                        <p class="text-neutral">Build resilience and develop practical tools for sustainable personal growth and success.</p>
+                        <p class="text-gray-600 mb-6">Convenient therapy sessions in the comfort of your home for those unable to visit our clinic due to physical or logistical constraints.</p>
+                        <a href="#book-appointment" class="inline-block px-4 py-2 bg-pastel-mint text-dark-blue rounded-full hover:bg-pastel-purple transition-all duration-300">
+                            Book Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="py-24 relative">
+        <section id="about" class="py-24 radial-bg">
             <div class="container mx-auto max-w-7xl px-6">
-                <div class="text-center mb-16 animate-fade-in">
-                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">SUCCESS STORIES</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Client Success Stories</h2>
-                    <p class="text-neutral max-w-3xl mx-auto">Real experiences from people who've transformed their lives with our support</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="glass-card p-8 rounded-3xl shadow-xl">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-dark-blue">About Omni Health Services</h2>
+                        <div class="space-y-4 text-gray-600">
+                            <p>Omni Health Services is a trusted and leading mental health organization with over 18 years of experience, now serving Mumbai. With 17+ clinics across the USA and India, we specialize in therapy, psychiatry, psychometric assessments, and personalized home care.</p>
+                            <p>Our expert team supports individuals dealing with Depression, Anxiety, ADHD, OCD, Bipolar Disorder, and Schizophrenia. We also offer shadow teacher services for children needing extra support in schools.</p>
+                            <p>Whether you seek in-person consultations, online (tele-consultation) sessions, or home-based care, Omni Health Services is here to guide your mental wellness journey in Mumbai.</p>
+                        </div>
+                        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="p-4 rounded-xl bg-white/50 backdrop-blur-sm">
+                                <div class="text-3xl font-bold text-pastel-blue">18+</div>
+                                <div class="text-sm text-gray-600">Years Experience</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white/50 backdrop-blur-sm">
+                                <div class="text-3xl font-bold text-pastel-pink">17+</div>
+                                <div class="text-sm text-gray-600">Clinics</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white/50 backdrop-blur-sm">
+                                <div class="text-3xl font-bold text-pastel-green">50+</div>
+                                <div class="text-sm text-gray-600">Specialists</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white/50 backdrop-blur-sm">
+                                <div class="text-3xl font-bold text-pastel-purple">10k+</div>
+                                <div class="text-sm text-gray-600">Happy Clients</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="rounded-3xl overflow-hidden shadow-xl">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.0123302756097!2d72.85127491490722!3d19.11307638706096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9d90e067ba9%3A0x16268e5d6bca2e6a!2sVishwa%20Nanak%20Apartments%2C%20Guru%20Nanak%20Nagar%2C%20Chakala%2C%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra%20400099!5e0!3m2!1sen!2sin!4v1646569084037!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="mt-8 glass-card p-6 rounded-2xl shadow-lg">
+                            <h3 class="text-xl font-semibold mb-4 text-dark-blue">Visit Our Clinic</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-pastel-pink mt-1 mr-3"></i>
+                                    <p>Office No. 304, Landmark, Vishwananak Apartment, Chakala Rd, Guru Nanak Nagar, Chakala, Andheri East, Mumbai, Maharashtra 400099</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="far fa-clock text-pastel-blue mr-3"></i>
+                                    <p>Open 10am - Closes 8pm (Monday to Saturday)</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone-alt text-pastel-green mr-3"></i>
+                                    <p><a href="tel:09653677486" class="hover:underline">096536 77486</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="testimonial-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-100">
-                        <div class="flex items-center mb-6">
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-24 bg-white">
+            <div class="container mx-auto max-w-7xl px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark-blue">Client Success Stories</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Real experiences from people who transformed their lives with our support.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="flex items-center mb-4">
                             <div class="text-yellow-400">★★★★★</div>
-                            <div class="ml-2 text-neutral text-sm">5.0</div>
                         </div>
-                        <p class="text-neutral mb-6 italic">"The personalized attention and expert guidance helped me overcome my anxiety. After 3 months of therapy, I've seen remarkable improvement in my work and relationships."</p>
+                        <p class="text-gray-600 mb-4">"The personalized attention and expert guidance helped me overcome my anxiety. After 3 months of therapy, I've seen remarkable improvement in my work and relationships."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center text-primary font-bold">PS</div>
+                            <div class="w-12 h-12 bg-pastel-blue rounded-full flex items-center justify-center text-white font-bold">PS</div>
                             <div class="ml-4">
                                 <p class="font-semibold">Priya S.</p>
-                                <p class="text-sm text-neutral">Marketing Professional</p>
+                                <p class="text-sm text-gray-500">Marketing Professional</p>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-200">
-                        <div class="flex items-center mb-6">
+                    
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="flex items-center mb-4">
                             <div class="text-yellow-400">★★★★★</div>
-                            <div class="ml-2 text-neutral text-sm">5.0</div>
                         </div>
-                        <p class="text-neutral mb-6 italic">"The cognitive behavioral therapy sessions have given me practical tools to manage stress. I'm sleeping better and feeling more confident."</p>
+                        <p class="text-gray-600 mb-4">"The cognitive behavioral therapy sessions have given me practical tools to manage stress. I'm sleeping better and feeling more confident."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center text-primary font-bold">RM</div>
+                            <div class="w-12 h-12 bg-pastel-green rounded-full flex items-center justify-center text-white font-bold">RM</div>
                             <div class="ml-4">
                                 <p class="font-semibold">Rahul M.</p>
-                                <p class="text-sm text-neutral">Software Engineer</p>
+                                <p class="text-sm text-gray-500">Software Engineer</p>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-300">
-                        <div class="flex items-center mb-6">
+                    
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <div class="flex items-center mb-4">
                             <div class="text-yellow-400">★★★★★</div>
-                            <div class="ml-2 text-neutral text-sm">5.0</div>
                         </div>
-                        <p class="text-neutral mb-6 italic">"Finding OmniHealth was a turning point in my life. The team's expertise and compassionate approach made all the difference in my recovery journey."</p>
+                        <p class="text-gray-600 mb-4">"Finding OmniHealth was a turning point in my life. The team's expertise and compassionate approach made all the difference."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center text-primary font-bold">AK</div>
+                            <div class="w-12 h-12 bg-pastel-pink rounded-full flex items-center justify-center text-white font-bold">AK</div>
                             <div class="ml-4">
                                 <p class="font-semibold">Anjali K.</p>
-                                <p class="text-sm text-neutral">Business Owner</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card glass-card p-8 rounded-xl hover:shadow-hover animate-fade-in delay-400">
-                        <div class="flex items-center mb-6">
-                            <div class="text-yellow-400">★★★★★</div>
-                            <div class="ml-2 text-neutral text-sm">5.0</div>
-                        </div>
-                        <p class="text-neutral mb-6 italic">"The home counselling service was perfect for my elderly mother. The therapist's visits made a world of difference to her mental wellbeing without the stress of travel."</p>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center text-primary font-bold">VP</div>
-                            <div class="ml-4">
-                                <p class="font-semibold">Vikram P.</p>
-                                <p class="text-sm text-neutral">IT Professional</p>
+                                <p class="text-sm text-gray-500">Business Owner</p>
                             </div>
                         </div>
                     </div>
@@ -529,233 +556,183 @@
             </div>
         </section>
 
-        <section id="about" class="py-24 relative">
+        <section id="faq" class="py-24 radial-bg">
             <div class="container mx-auto max-w-7xl px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="hidden md:block rounded-2xl overflow-hidden shadow-hover animate-fade-in relative group">
-                        <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="OmniHealth Clinic in Andheri East" class="w-full h-auto hover:scale-105 transition-transform duration-700 object-cover">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark-blue">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Find answers to common questions about our mental health services.</p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="space-y-6">
+                        <div class="bento-box bg-white p-6 shadow-lg hover:shadow-xl">
+                            <h3 class="text-lg font-semibold mb-2 text-dark-blue">What types of mental health conditions do you treat?</h3>
+                            <p class="text-gray-600">We provide comprehensive care for anxiety, depression, stress, relationship issues, trauma, ADHD, OCD, Bipolar Disorder, Schizophrenia, and other mental health concerns. Our expert team uses evidence-based approaches tailored to your needs.</p>
+                        </div>
+                        
+                        <div class="bento-box bg-white p-6 shadow-lg hover:shadow-xl">
+                            <h3 class="text-lg font-semibold mb-2 text-dark-blue">How long does each therapy session last?</h3>
+                            <p class="text-gray-600">Standard sessions are 50 minutes, while initial consultations are 90 minutes to allow for thorough assessment. We offer flexible scheduling including evening and weekend appointments.</p>
+                        </div>
+                        
+                        <div class="bento-box bg-white p-6 shadow-lg hover:shadow-xl">
+                            <h3 class="text-lg font-semibold mb-2 text-dark-blue">What are your payment options and fees?</h3>
+                            <p class="text-gray-600">Sessions start at ₹1000, with sliding scale options available. We accept major insurance plans and offer flexible payment arrangements to ensure accessibility.</p>
+                        </div>
+                        
+                        <div class="bento-box bg-white p-6 shadow-lg hover:shadow-xl">
+                            <h3 class="text-lg font-semibold mb-2 text-dark-blue">How soon can I get an appointment?</h3>
+                            <p class="text-gray-600">New clients typically get appointments within 1-2 weeks. For urgent cases, we offer priority scheduling options. Contact us to discuss your specific needs.</p>
+                        </div>
+                        
+                        <div class="bento-box bg-white p-6 shadow-lg hover:shadow-xl">
+                            <h3 class="text-lg font-semibold mb-2 text-dark-blue">Are your services confidential?</h3>
+                            <p class="text-gray-600">Yes, we maintain strict confidentiality in accordance with professional ethics and legal requirements. Your privacy and trust are our top priorities.</p>
+                        </div>
                     </div>
-                    <div class="animate-fade-in delay-200">
-                        <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">OUR STORY</span>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-shadow-sm">About OmniHealth</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-white">
+            <div class="container mx-auto max-w-7xl px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark-blue">Get in Touch</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Have questions or ready to start your mental health journey? Reach out to us today.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold mb-6 text-dark-blue">Contact Information</h3>
                         <div class="space-y-6">
-                            <p class="text-neutral leading-relaxed">Founded in 2015, OmniHealth emerged from a vision to make quality mental health care accessible to everyone in Mumbai. Our journey began with a small team of dedicated professionals and has grown into a comprehensive mental health center serving thousands of clients.</p>
-                            <p class="text-neutral leading-relaxed">Our mission is to provide evidence-based, compassionate mental health care that empowers individuals to overcome challenges and achieve their full potential. We believe in treating the whole person, not just symptoms, and are committed to maintaining the highest standards of professional care while keeping our services affordable and accessible.</p>
-                        </div>
-                        <div class="mt-8 glass-card p-6 rounded-xl">
-                            <h3 class="text-xl font-semibold mb-4">Our Values</h3>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="flex items-center hover-scale">
-                                    <i class="fas fa-check-circle text-primary mr-2"></i>
-                                    <span>Compassionate Care</span>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-pastel-blue rounded-full flex items-center justify-center text-dark-blue mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </div>
-                                <div class="flex items-center hover-scale">
-                                    <i class="fas fa-check-circle text-primary mr-2"></i>
-                                    <span>Scientific Approach</span>
-                                </div>
-                                <div class="flex items-center hover-scale">
-                                    <i class="fas fa-check-circle text-primary mr-2"></i>
-                                    <span>Accessibility</span>
-                                </div>
-                                <div class="flex items-center hover-scale">
-                                    <i class="fas fa-check-circle text-primary mr-2"></i>
-                                    <span>Confidentiality</span>
+                                <div>
+                                    <h4 class="font-medium mb-1">Address</h4>
+                                    <p class="text-gray-600"> <div>
+                                    <h4 class="font-medium mb-1">Address</h4>
+                                    <p class="text-gray-600">Office No. 304, Landmark, Vishwananak Apartment, Chakala Rd, Guru Nanak Nagar, Chakala, Andheri East, Mumbai, Maharashtra 400099</p>
                                 </div>
                             </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-pastel-pink rounded-full flex items-center justify-center text-dark-blue mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Phone</h4>
+                                    <p class="text-gray-600"><a href="tel:09653677486" class="hover:underline">096536 77486</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-pastel-green rounded-full flex items-center justify-center text-dark-blue mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email</h4>
+                                    <p class="text-gray-600"><a href="mailto:info@omnihealthservices.in" class="hover:underline">info@omnihealthservices.in</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-pastel-purple rounded-full flex items-center justify-center text-dark-blue mr-4">
+                                    <i class="far fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Hours</h4>
+                                    <p class="text-gray-600">Monday to Saturday: 10:00 AM - 8:00 PM</p>
+                                    <p class="text-gray-600">Sunday: Closed</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq" class="py-24 relative">
-            <div class="container mx-auto max-w-7xl px-6">
-                <div class="text-center mb-16 animate-fade-in">
-                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">COMMON QUESTIONS</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Frequently Asked Questions</h2>
-                    <p class="text-neutral max-w-3xl mx-auto">Answers to common questions about our services and approach</p>
-                </div>
-                <div class="max-w-3xl mx-auto space-y-6">
-                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-100">
-                        <h3 class="text-lg font-semibold mb-2">What types of mental health conditions do you treat?</h3>
-                        <p class="text-neutral">We provide comprehensive care for anxiety, depression, stress, relationship issues, trauma, and other mental health concerns. Our expert team uses evidence-based approaches tailored to your needs.</p>
-                    </div>
-                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-200">
-                        <h3 class="text-lg font-semibold mb-2">How long does each therapy session last?</h3>
-                        <p class="text-neutral">Standard sessions are 50 minutes, while initial consultations are 90 minutes to allow for thorough assessment. We offer flexible scheduling including evening and weekend appointments.</p>
-                    </div>
-                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-300">
-                        <h3 class="text-lg font-semibold mb-2">What are your payment options and fees?</h3>
-                        <p class="text-neutral">Sessions start at ₹1000, with sliding scale options available. We accept major insurance plans and offer flexible payment arrangements to ensure accessibility.</p>
-                    </div>
-                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-400">
-                        <h3 class="text-lg font-semibold mb-2">Do you offer home counseling services?</h3>
-                        <p class="text-neutral">Yes, we provide home counseling services for clients who have mobility challenges or prefer the comfort of their own environment. This service is available in Andheri East and surrounding areas in Mumbai.</p>
-                    </div>
-                    <div class="faq-item glass-card rounded-lg p-6 hover:shadow-hover animate-fade-in delay-400">
-                        <h3 class="text-lg font-semibold mb-2">Are your services confidential?</h3>
-                        <p class="text-neutral">Yes, we maintain strict confidentiality in accordance with professional ethics and legal requirements. Your privacy and trust are our top priorities.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="relative py-24 overflow-hidden contact-form-wrapper">
-            <div class="relative z-10 container mx-auto max-w-7xl px-6">
-                <div class="max-w-3xl mx-auto glass-card rounded-2xl shadow-hover p-8 md:p-12">
-                    <div class="text-center mb-10 animate-fade-in">
-                        <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary bg-primary-light rounded-full mb-4">GET IN TOUCH</span>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-sm">Begin Your Journey to Better Mental Health</h2>
-                        <p class="text-neutral max-w-2xl mx-auto">Take the first step towards positive change - schedule your consultation today</p>
-                    </div>
-                    <form class="space-y-6 animate-fade-in delay-200">
-                        <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold mb-6 text-dark-blue">Send a Message</h3>
+                        <form class="space-y-4">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-neutral-dark mb-1">Full Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Your name">
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="contact-name" name="contact-name" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-neutral-dark mb-1">Email Address</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Your email">
-                            </div>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-neutral-dark mb-1">Phone Number</label>
-                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Your phone">
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" id="contact-email" name="contact-email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all">
                             </div>
                             <div>
-                                <label for="service" class="block text-sm font-medium text-neutral-dark mb-1">Service Interest</label>
-                                <select id="service" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white">
-                                    <option value="" selected disabled>Select a service</option>
-                                    <option value="individual">Individual Therapy</option>
-                                    <option value="couple">Couple Therapy</option>
-                                    <option value="child">Child Counselling</option>
-                                    <option value="psychiatry">Psychiatry & Medication</option>
-                                    <option value="geriatric">Geriatric Mental Health</option>
-                                    <option value="home">Home Counselling</option>
-                                    <option value="online">Online Therapy</option>
-                                </select>
+                                <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
+                                <input type="tel" id="contact-phone" name="contact-phone" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all">
                             </div>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-neutral-dark mb-1">Your Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="How can we help you?"></textarea>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="consent" class="mr-2">
-                            <label for="consent" class="text-sm text-neutral">I consent to having my information stored and used to be contacted by OmniHealth.</label>
-                        </div>
-                        <button type="submit" class="w-full btn-primary bg-primary text-white py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-soft hover:shadow-hover">
-                            Book Your Session Now
-                        </button>
-                    </form>
-                    <div class="mt-10 pt-10 border-t border-neutral-light/30 text-center">
-                        <p class="text-lg font-medium mb-2">Prefer direct contact?</p>
-                        <a href="mailto:info@omnihealthservices.in" class="text-primary hover:text-primary-dark transition-colors duration-300 block mb-2">info@omnihealthservices.in</a>
-                        <a href="tel:+919876543210" class="text-primary hover:text-primary-dark transition-colors duration-300">+91 98765 43210</a>
-                    </div>
-                </div>
-                <div class="mt-12 glass-card p-8 rounded-xl max-w-5xl mx-auto animate-fade-in delay-300">
-                    <div class="grid md:grid-cols-3 gap-8 text-center">
-                        <div class="hover-scale">
-                            <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-map-marker-alt text-white"></i>
+                            <div>
+                                <label for="contact-subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <input type="text" id="contact-subject" name="contact-subject" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all">
                             </div>
-                            <h3 class="text-white font-semibold mb-2">Our Location</h3>
-                            <p class="text-white/80">123 Andheri East, Near Metro Station, Mumbai, 400069</p>
-                        </div>
-                        <div class="hover-scale">
-                            <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-clock text-white"></i>
+                            <div>
+                                <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-1">Message <span class="text-red-500">*</span></label>
+                                <textarea id="contact-message" name="contact-message" rows="4" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pastel-blue focus:border-pastel-blue transition-all"></textarea>
                             </div>
-                            <h3 class="text-white font-semibold mb-2">Working Hours</h3>
-                            <p class="text-white/80">Monday to Saturday: 9:00 AM - 7:00 PM</p>
-                        </div>
-                        <div class="hover-scale">
-                            <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-phone-alt text-white"></i>
-                            </div>
-                            <h3 class="text-white font-semibold mb-2">Emergency Contact</h3>
-                            <p class="text-white/80">+91 98765 43210 (24/7 Helpline)</p>
-                        </div>
+                            <button type="submit" class="w-full px-6 py-3 bg-dark-blue text-white rounded-full hover:bg-opacity-90 transition-all">Send Message</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-neutral-light/50 py-12">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto max-w-7xl px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <a href="/" class="text-2xl font-bold text-primary-dark block mb-4">
-                        <span class="text-primary-dark">Omni</span>Health
-                    </a>
-                    <p class="text-neutral mb-4">Leading mental health services in Mumbai</p>
-                    <div class="flex space-x-4">
-                        <a href="#" aria-label="Facebook" class="text-neutral hover:text-primary transition-colors duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" aria-label="Instagram" class="text-neutral hover:text-primary transition-colors duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" aria-label="Twitter" class="text-neutral hover:text-primary transition-colors duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" aria-label="LinkedIn" class="text-neutral hover:text-primary transition-colors duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                    <p class="text-neutral mb-2">
-                        <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
-                        123 Andheri East, Mumbai, 400069
-                    </p>
-                    <p class="text-neutral mb-2">
-                        <i class="fas fa-phone mr-2 text-primary"></i>
-                        +91 98765 43210
-                    </p>
-                    <p class="text-neutral">
-                        <i class="fas fa-envelope mr-2 text-primary"></i>
-                        info@omnihealthservices.in
-                    </p>
+                    <h3 class="text-xl font-bold mb-4"><span class="text-pastel-blue">Omni</span>Health</h3>
+                    <p class="text-gray-400">Leading mental health services in Mumbai with 18+ years of experience across 17+ clinics in the USA and India.</p>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Services</a></li>
-                        <li><a href="#benefits" class="text-neutral hover:text-primary transition-colors duration-300">Benefits</a></li>
-                        <li><a href="#testimonials" class="text-neutral hover:text-primary transition-colors duration-300">Testimonials</a></li>
-                        <li><a href="#about" class="text-neutral hover:text-primary transition-colors duration-300">About</a></li>
-                        <li><a href="#faq" class="text-neutral hover:text-primary transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">About</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Our Team</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Testimonials</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Our Services</h3>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
                     <ul class="space-y-2">
-                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Individual Therapy</a></li>
-                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Couple Therapy</a></li>
-                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Child Counselling</a></li>
-                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Psychiatry Services</a></li>
-                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Home Counselling</a></li>
-                        <li><a href="#services" class="text-neutral hover:text-primary transition-colors duration-300">Online Therapy</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Individual Therapy</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Couple Therapy</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Child Counselling</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Psychiatry & Medication</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Geriatric Mental Health</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">Home Counselling</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-pastel-blue mr-2"></i>
+                            <span class="text-gray-400">Andheri East, Mumbai</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-pastel-blue mr-2"></i>
+                            <a href="tel:09653677486" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">096536 77486</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-pastel-blue mr-2"></i>
+                            <a href="mailto:info@omnihealthservices.in" class="text-gray-400 hover:text-pastel-blue transition-colors duration-300">info@omnihealthservices.in</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-12 pt-8 border-t border-neutral-light/50 text-center text-neutral">
-                <p>&copy; 2024 OmniHealth Services. All rights reserved.</p>
-                <p class="mt-2 text-sm">Designed for accessibility and wellness.</p>
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Omni Health Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-hover opacity-0 invisible transition-all duration-300 z-50">
-        <i class="fas fa-arrow-up"></i>
-    </button>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -786,34 +763,149 @@
                 });
             }
             
-            // Back to top button
-            const backToTopButton = document.getElementById('back-to-top');
+            // Multi-step form
+            const form = document.getElementById('appointment-form');
+            const formSteps = document.querySelectorAll('.form-step');
+            const breadcrumbItems = document.querySelectorAll('.breadcrumb-item');
+            const progressBar = document.querySelector('.progress-bar');
+            const nextButtons = document.querySelectorAll('.next-btn');
+            const prevButtons = document.querySelectorAll('.prev-btn');
+            const optionButtons = document.querySelectorAll('.option-btn');
+            const timeSlots = document.querySelectorAll('.time-slot');
             
-            const scrollFunction = () => {
-                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            };
+            let currentStep = 1;
+            const totalSteps = formSteps.length;
             
-            window.addEventListener('scroll', scrollFunction);
+            function updateStep() {
+                formSteps.forEach(step => {
+                    step.classList.remove('active');
+                });
+                
+                breadcrumbItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                formSteps[currentStep - 1].classList.add('active');
+                breadcrumbItems[currentStep - 1].classList.add('active');
+                
+                progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
+            }
             
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({top: 0, behavior: 'smooth'});
+            nextButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (currentStep < totalSteps) {
+                        currentStep++;
+                        updateStep();
+                        
+                        // Show available times when calendar step is active
+                        if (currentStep === 4) {
+                            document.getElementById('available-times').classList.remove('hidden');
+                        }
+                    }
+                });
             });
             
-            // Form submission
-            const contactForm = document.querySelector('form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
+            prevButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (currentStep > 1) {
+                        currentStep--;
+                        updateStep();
+                    }
+                });
+            });
+            
+            optionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const parentStep = button.closest('.form-step');
+                    const allOptions = parentStep.querySelectorAll('.option-btn');
+                    
+                    allOptions.forEach(opt => {
+                        opt.classList.remove('bg-pastel-blue', 'border-pastel-blue');
+                        opt.classList.add('border');
+                    });
+                    
+                    button.classList.add('bg-pastel-blue', 'border-pastel-blue');
+                    button.classList.remove('border');
+                });
+            });
+            
+            timeSlots.forEach(slot => {
+                slot.addEventListener('click', () => {
+                    timeSlots.forEach(s => {
+                        s.classList.remove('bg-pastel-blue', 'border-pastel-blue');
+                    });
+                    
+                    slot.classList.add('bg-pastel-blue', 'border-pastel-blue');
+                });
+            });
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    alert('Thank you for your message. We will get back to you soon!');
-                    contactForm.reset();
+                    
+                    document.getElementById('appointment-form-container').classList.add('hidden');
+                    document.getElementById('appointment-success').classList.remove('hidden');
                 });
             }
             
-            // Smooth scroll for all anchor links
+            // Initialize calendar
+            const calendarEl = document.getElementById('calendar');
+            if (calendarEl) {
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth'
+                    },
+                    selectable: true,
+                    select: function(info) {
+                        // Show available times when a date is selected
+                        document.getElementById('available-times').classList.remove('hidden');
+                        
+                        // Deselect all time slots when a new date is selected
+                        timeSlots.forEach(slot => {
+                            slot.classList.remove('bg-pastel-blue', 'border-pastel-blue');
+                        });
+                    },
+                    validRange: {
+                        start: new Date()
+                    },
+                    businessHours: {
+                        daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday - Saturday
+                        startTime: '10:00',
+                        endTime: '20:00',
+                    },
+                    eventSources: [
+                        {
+                            events: [
+                                // Sample events - in a real implementation, these would come from a database or API
+                                {
+                                    title: 'Booked',
+                                    start: '2025-03-05T10:00:00',
+                                    end: '2025-03-05T11:00:00',
+                                    color: '#FFB7B2'
+                                },
+                                {
+                                    title: 'Booked',
+                                    start: '2025-03-05T14:00:00',
+                                    end: '2025-03-05T15:00:00',
+                                    color: '#FFB7B2'
+                                },
+                                {
+                                    title: 'Booked',
+                                    start: '2025-03-06T16:00:00',
+                                    end: '2025-03-06T17:00:00',
+                                    color: '#FFB7B2'
+                                }
+                            ]
+                        }
+                    ]
+                });
+                calendar.render();
+            }
+            
+            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -823,85 +915,13 @@
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
                             behavior: 'smooth'
                         });
                     }
                 });
             });
-            
-            // Apply fade-in animations on scroll
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.animate-fade-in');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementPosition < windowHeight - 100 && !element.classList.contains('fade-in-visible')) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                        element.classList.add('fade-in-visible');
-                    }
-                });
-            };
-            
-            window.addEventListener('scroll', animateOnScroll);
-            window.addEventListener('load', animateOnScroll);
-            
-            // Add schema.org structured data for SEO
-            const jsonLd = {
-                "@context": "https://schema.org",
-                "@type": "MedicalBusiness",
-                "name": "OmniHealth Mental Health Services",
-                "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-                "url": "https://omnihealthservices.in",
-                "telephone": "+919876543210",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "123 Andheri East",
-                    "addressLocality": "Mumbai",
-                    "postalCode": "400069",
-                    "addressCountry": "IN"
-                },
-                "geo": {
-                    "@type": "GeoCoordinates",
-                    "latitude": 19.1136,
-                    "longitude": 72.8697
-                },
-                "openingHoursSpecification": {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday",
-                        "Saturday"
-                    ],
-                    "opens": "09:00",
-                    "closes": "19:00"
-                },
-                "sameAs": [
-                    "https://www.facebook.com/omnihealthservices",
-                    "https://www.instagram.com/omnihealthservices",
-                    "https://twitter.com/omnihealthmumbai"
-                ],
-                "medicalSpecialty": [
-                    "Individual Therapy",
-                    "Couple Therapy", 
-                    "Child Counselling",
-                    "Psychiatry",
-                    "Geriatric Mental Health",
-                    "Home Counselling",
-                    "Online Therapy"
-                ]
-            };
-            
-            const script = document.createElement('script');
-            script.type = 'application/ld+json';
-            script.text = JSON.stringify(jsonLd);
-            document.head.appendChild(script);
         });
     </script>
 </body>
