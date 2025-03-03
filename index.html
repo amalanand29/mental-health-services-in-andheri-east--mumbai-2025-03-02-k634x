@@ -712,7 +712,7 @@
     const optionButtons = document.querySelectorAll('.option-btn');
     const ageGroupOptions = document.getElementById('age-group-options');
     const concernsOptions = document.getElementById('concerns-options');
-
+    const progressBar = document.querySelector('.progress-bar');
     let currentStep = 1;
     const totalSteps = formSteps.length;
 
@@ -722,6 +722,7 @@
         });
 
         formSteps[currentStep - 1].classList.add('active');
+        progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
     }
 
     nextButtons.forEach(button => {
@@ -774,18 +775,7 @@
                 }
 
                 document.querySelectorAll('#age-group-options .option-btn').forEach(opt => {
-                    opt.addEventListener('click', () => {
-                        const parentStep = opt.closest('.form-step');
-                        const allOptions = parentStep.querySelectorAll('.option-btn');
-
-                        allOptions.forEach(option => {
-                            option.classList.remove('bg-pastel-blue', 'border-pastel-blue');
-                            option.classList.add('border');
-                        });
-
-                        opt.classList.add('bg-pastel-blue', 'border-pastel-blue');
-                        opt.classList.remove('border');
-                    });
+                    opt.addEventListener('click', handleOptionClick);
                 });
             }
 
@@ -832,22 +822,29 @@
                 concernsOptions.innerHTML = optionsHtml;
 
                 document.querySelectorAll('#concerns-options .option-btn').forEach(opt => {
-                    opt.addEventListener('click', () => {
-                        const parentStep = opt.closest('.form-step');
-                        const allOptions = parentStep.querySelectorAll('.option-btn');
-
-                        allOptions.forEach(option => {
-                            option.classList.remove('bg-pastel-blue', 'border-pastel-blue');
-                            option.classList.add('border');
-                        });
-
-                        opt.classList.add('bg-pastel-blue', 'border-pastel-blue');
-                        opt.classList.remove('border');
-                    });
+                    opt.addEventListener('click', handleOptionClick);
                 });
             }
         });
     });
+
+    function handleOptionClick(event) {
+        const button = event.currentTarget;
+        const parentStep = button.closest('.form-step');
+        const allOptions = parentStep.querySelectorAll('.option-btn');
+
+        allOptions.forEach(opt => {
+            opt.classList.remove('bg-pastel-blue', 'border-pastel-blue');
+            opt.classList.add('border');
+        });
+
+        button.classList.add('bg-pastel-blue', 'border-pastel-blue');
+        button.classList.remove('border');
+    }
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        document.getElementById('appointment-form-container').classList.add('hidden');
+        document.getElementById('appointment-success').classList.remove('hidden');
+    });
 });
-</body>
-</html>
