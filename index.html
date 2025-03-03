@@ -155,6 +155,7 @@
                         <i class="fas fa-phone-alt mr-2"></i> Call Now
                     </a>
                    <a href="#" onclick="openBookingModal()" class="flex items-center px-4 py-2 rounded-full bg-dark-blue text-white hover:bg-opacity-90 transition-all duration-300">
+    <a href="#" onclick="openBookingModal()" class="flex items-center px-4 py-2 rounded-full bg-dark-blue text-white hover:bg-opacity-90 transition-all duration-300">
     <i class="fas fa-calendar-check mr-2"></i> Book Appointment
 </a>
 
@@ -387,9 +388,9 @@
                         </div>
                         <h3 class="text-xl font-semibold mb-4">Individual Therapy</h3>
                         <p class="text-gray-600 mb-6">One-on-one sessions with our expert therapists to address personal challenges, develop coping strategies, and achieve mental wellness.</p>
-                        <a href="#book-appointment" class="inline-block px-4 py-2 bg-pastel-blue text-dark-blue rounded-full hover:bg-pastel-purple transition-all duration-300">
-                            Book Now <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
+                       <a href="#" onclick="openBookingModal()" class="flex items-center px-4 py-2 rounded-full bg-dark-blue text-white hover:bg-opacity-90 transition-all duration-300">
+    <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+</a>
                     </div>
                     
                     <div class="bento-box bg-white p-8 shadow-lg hover:shadow-xl">
@@ -809,102 +810,59 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-</script>
-            // Initialize calendar
-const calendarEl = document.getElementById('calendar');
-if (calendarEl) {
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth'
-        },
-        selectable: true,
-        select: function(info) {
-            // Show available times when a date is selected
-            document.getElementById('available-times').classList.remove('hidden');
-            
-            // Deselect all time slots when a new date is selected
-            timeSlots.forEach(slot => {
-                slot.classList.remove('bg-pastel-blue', 'border-pastel-blue');
-            });
-        },
-        validRange: {
-            start: new Date(),
-            end: new Date(new Date().setDate(new Date().getDate() + 45))
-        },
-        businessHours: {
-            daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday - Saturday
-            startTime: '10:00',
-            endTime: '20:00',
-        },
-        eventSources: [
-            {
-                events: [
-                    // Sample events - in a real implementation, these would come from a database or API
-                    {
-                        title: 'Booked',
-                        start: '2025-03-05T10:00:00',
-                        end: '2025-03-05T11:00:00',
-                        color: '#FFB7B2'
-                    },
-                    {
-                        title: 'Booked',
-                        start: '2025-03-05T14:00:00',
-                        end: '2025-03-05T15:00:00',
-                        color: '#FFB7B2'
-                    },
-                    {
-                        title: 'Booked',
-                        start: '2025-03-06T16:00:00',
-                        end: '2025-03-06T17:00:00',
-                        color: '#FFB7B2'
-                    }
-                ]
-            }
-        ]
-    });
-    calendar.render();
-}
+        <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-4">Select a Date & Time</h2>
+        
+        <div id="calendar"></div>
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 100,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+        <form id="booking-form" class="mt-6 hidden">
+            <label class="block mb-2">Full Name <span class="text-red-500">*</span></label>
+            <input type="text" id="name" class="w-full p-2 border rounded mb-4" required>
+
+            <label class="block mb-2">Email <span class="text-red-500">*</span></label>
+            <input type="email" id="email" class="w-full p-2 border rounded mb-4" required>
+
+            <label class="block mb-2">Phone <span class="text-red-500">*</span></label>
+            <input type="tel" id="phone" class="w-full p-2 border rounded mb-4" required>
+
+            <button type="submit" class="bg-dark-blue text-white py-2 px-4 rounded">Confirm Booking</button>
+        </form>
+
+        <button onclick="closeBookingModal()" class="mt-4 text-red-500">Cancel</button>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bookingModal = document.getElementById("booking-modal");
+    const bookingForm = document.getElementById("booking-form");
+
+    // Initialize FullCalendar
+    const calendarEl = document.getElementById('calendar');
+    if (calendarEl) {
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            validRange: {
+                start: new Date(),
+                end: new Date(new Date().setDate(new Date().getDate() + 45))
+            },
+            select: function(info) {
+                bookingForm.classList.remove('hidden'); // Show the form after selecting a date
+            }
         });
-        <script>
+        calendar.render();
+    }
+
+    window.openBookingModal = function() {
+        bookingModal.classList.remove("hidden");
+    };
+
+    window.closeBookingModal = function() {
+        bookingModal.classList.add("hidden");
+        bookingForm.classList.add('hidden'); // Reset form visibility
+    };
+});
+</script>
 document.addEventListener('DOMContentLoaded', function() {
     const bookingModal = document.getElementById("booking-modal");
     const bookingForm = document.getElementById("booking-form");
