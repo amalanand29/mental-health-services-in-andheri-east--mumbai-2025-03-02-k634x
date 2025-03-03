@@ -296,7 +296,7 @@
 <!-- Form Step 5 -->
 <div class="form-step" data-step="5">
     <h3 class="text-lg font-medium mb-4">Please select your preferred date and time for your session:</h3>
-    <div id="calendar" class="mb-4"></div>
+    <div id="calendar" class="mb-4"></div> <!-- This is important -->
     <div id="available-times" class="grid grid-cols-3 gap-2 mt-4 hidden">
         <!-- Time slots will be inserted here -->
     </div>
@@ -305,6 +305,7 @@
         <button type="button" class="next-btn px-6 py-2 bg-dark-blue text-white rounded-full hover:bg-opacity-90 transition-all">Next</button>
     </div>
 </div>
+
 
 <!-- Form Step 6 -->
 <div class="form-step" data-step="6">
@@ -812,18 +813,41 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'timeGridWeek',
-        selectable: true,
-        select: function(info) {
-            var timeSlot = document.createElement('div');
-            timeSlot.textContent = `Selected: ${info.startStr} to ${info.endStr}`;
-            document.getElementById('available-times').appendChild(timeSlot);
-            document.getElementById('available-times').classList.remove('hidden');
+    let calendar;
+
+    function initCalendar() {
+        var calendarEl = document.getElementById('calendar');
+        if (!calendarEl) return; // Prevent errors if element is missing
+
+        // Destroy existing calendar before reinitializing
+        if (calendar) {
+            calendar.destroy();
         }
+
+        calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'timeGridWeek',
+            selectable: true,
+            select: function(info) {
+                document.getElementById('available-times').innerHTML = 
+                    `<div class="p-2 bg-green-200 rounded">Selected: ${info.startStr} to ${info.endStr}</div>`;
+                document.getElementById('available-times').classList.remove('hidden');
+            }
+        });
+
+        calendar.render();
+    }
+
+    // Initialize calendar only when Step 5 becomes active
+    document.querySelectorAll('.next-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            setTimeout(() => {
+                if (document.querySelector('.form-step[data-step="5"]').classList.contains('active')) {
+                    initCalendar();
+                }
+            }, 200); // Delay to ensure step is fully visible
+        });
     });
-    calendar.render();
 });
 </script>
+
 </body>
