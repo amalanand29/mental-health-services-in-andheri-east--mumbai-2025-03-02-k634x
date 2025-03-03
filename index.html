@@ -737,119 +737,79 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
-            const mobileMenu = document.querySelector('header nav .mobile-menu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    const icon = mobileMenuButton.querySelector('i');
-                    if (icon) {
-                        icon.classList.toggle('fa-bars');
-                        icon.classList.toggle('fa-times');
-                    }
-                });
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing code...
 
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        const icon = mobileMenuButton.querySelector('i');
-                        if (icon) {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    });
-                });
+    // Multi-step form logic
+    const form = document.getElementById('appointment-form');
+    const formSteps = document.querySelectorAll('.form-step');
+    const breadcrumbItems = document.querySelectorAll('.breadcrumb-item');
+    const progressBar = document.querySelector('.progress-bar');
+    const nextButtons = document.querySelectorAll('.next-btn');
+    const prevButtons = document.querySelectorAll('.prev-btn');
+    const optionButtons = document.querySelectorAll('.option-btn');
+
+    let currentStep = 1;
+    const totalSteps = formSteps.length;
+
+    function updateStep() {
+        formSteps.forEach(step => {
+            step.classList.remove('active');
+        });
+
+        breadcrumbItems.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        formSteps[currentStep - 1].classList.add('active');
+        breadcrumbItems[currentStep - 1].classList.add('active');
+
+        progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
+    }
+
+    nextButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateStep();
             }
-            
-            // Multi-step form
-            const form = document.getElementById('appointment-form');
-            const formSteps = document.querySelectorAll('.form-step');
-            const breadcrumbItems = document.querySelectorAll('.breadcrumb-item');
-            const progressBar = document.querySelector('.progress-bar');
-            const nextButtons = document.querySelectorAll('.next-btn');
-            const prevButtons = document.querySelectorAll('.prev-btn');
-            const optionButtons = document.querySelectorAll('.option-btn');
-            const timeSlots = document.querySelectorAll('.time-slot');
-            
-            let currentStep = 1;
-            const totalSteps = formSteps.length;
-            
-            function updateStep() {
-                formSteps.forEach(step => {
-                    step.classList.remove('active');
-                });
-                
-                breadcrumbItems.forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                formSteps[currentStep - 1].classList.add('active');
-                breadcrumbItems[currentStep - 1].classList.add('active');
-                
-                progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
+        });
+    });
+
+    prevButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStep();
             }
-            
-            nextButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    if (currentStep < totalSteps) {
-                        currentStep++;
-                        updateStep();
-                        
-                        // Show available times when calendar step is active
-                        if (currentStep === 4) {
-                            document.getElementById('available-times').classList.remove('hidden');
-                        }
-                    }
-                });
+        });
+    });
+
+    optionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const parentStep = button.closest('.form-step');
+            const allOptions = parentStep.querySelectorAll('.option-btn');
+
+            allOptions.forEach(opt => {
+                opt.classList.remove('bg-pastel-blue', 'border-pastel-blue');
+                opt.classList.add('border');
             });
-            
-            prevButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    if (currentStep > 1) {
-                        currentStep--;
-                        updateStep();
-                    }
-                });
-            });
-            
-            optionButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const parentStep = button.closest('.form-step');
-                    const allOptions = parentStep.querySelectorAll('.option-btn');
-                    
-                    allOptions.forEach(opt => {
-                        opt.classList.remove('bg-pastel-blue', 'border-pastel-blue');
-                        opt.classList.add('border');
-                    });
-                    
-                    button.classList.add('bg-pastel-blue', 'border-pastel-blue');
-                    button.classList.remove('border');
-                });
-            });
-            
-            timeSlots.forEach(slot => {
-                slot.addEventListener('click', () => {
-                    timeSlots.forEach(s => {
-                        s.classList.remove('bg-pastel-blue', 'border-pastel-blue');
-                    });
-                    
-                    slot.classList.add('bg-pastel-blue', 'border-pastel-blue');
-                });
-            });
-            
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    document.getElementById('appointment-form-container').classList.add('hidden');
-                    document.getElementById('appointment-success').classList.remove('hidden');
-                });
-            }
-            
+
+            button.classList.add('bg-pastel-blue', 'border-pastel-blue');
+            button.classList.remove('border');
+        });
+    });
+
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            document.getElementById('appointment-form-container').classList.add('hidden');
+            document.getElementById('appointment-success').classList.remove('hidden');
+        });
+    }
+});
+</script>
             // Initialize calendar
             const calendarEl = document.getElementById('calendar');
             if (calendarEl) {
@@ -925,29 +885,7 @@
                 });
             });
         });
-        <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
-    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-4">Select a Date & Time</h2>
-        
-        <div id="calendar"></div>
-
-        <form id="booking-form" class="mt-6 hidden">
-            <label class="block mb-2">Full Name <span class="text-red-500">*</span></label>
-            <input type="text" id="name" class="w-full p-2 border rounded mb-4" required>
-
-            <label class="block mb-2">Email <span class="text-red-500">*</span></label>
-            <input type="email" id="email" class="w-full p-2 border rounded mb-4" required>
-
-            <label class="block mb-2">Phone <span class="text-red-500">*</span></label>
-            <input type="tel" id="phone" class="w-full p-2 border rounded mb-4" required>
-
-            <button type="submit" class="bg-dark-blue text-white py-2 px-4 rounded">Confirm Booking</button>
-        </form>
-
-        <button onclick="closeBookingModal()" class="mt-4 text-red-500">Cancel</button>
-    </div>
-</div>
-<script>
+        <script>
 document.addEventListener('DOMContentLoaded', function() {
     const bookingModal = document.getElementById("booking-modal");
     const bookingForm = document.getElementById("booking-form");
@@ -958,6 +896,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             selectable: true,
+            validRange: {
+                start: new Date(),
+                end: new Date(new Date().setDate(new Date().getDate() + 45))
+            },
             select: function(info) {
                 bookingForm.classList.remove('hidden'); // Show the form after selecting a date
             }
@@ -974,6 +916,4 @@ document.addEventListener('DOMContentLoaded', function() {
         bookingForm.classList.add('hidden'); // Reset form visibility
     };
 });
-    </script>
-</body>
-</html>
+</script>
