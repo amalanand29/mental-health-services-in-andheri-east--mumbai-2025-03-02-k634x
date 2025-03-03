@@ -704,8 +704,7 @@
     </footer>
 
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('appointment-form');
+document.addEventListener('DOMContentLoaded', function() {
     const formSteps = document.querySelectorAll('.form-step');
     const nextButtons = document.querySelectorAll('.next-btn');
     const prevButtons = document.querySelectorAll('.prev-btn');
@@ -713,14 +712,12 @@
     const ageGroupOptions = document.getElementById('age-group-options');
     const concernsOptions = document.getElementById('concerns-options');
     const progressBar = document.querySelector('.progress-bar');
+    
     let currentStep = 1;
     const totalSteps = formSteps.length;
 
     function updateStep() {
-        formSteps.forEach(step => {
-            step.classList.remove('active');
-        });
-
+        formSteps.forEach(step => step.classList.remove('active'));
         formSteps[currentStep - 1].classList.add('active');
         progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
     }
@@ -743,108 +740,59 @@
         });
     });
 
-    optionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const parentStep = button.closest('.form-step');
-            const allOptions = parentStep.querySelectorAll('.option-btn');
-
-            allOptions.forEach(opt => {
-                opt.classList.remove('bg-pastel-blue', 'border-pastel-blue');
-                opt.classList.add('border');
-            });
-
-            button.classList.add('bg-pastel-blue', 'border-pastel-blue');
-            button.classList.remove('border');
-
-            const step = parentStep.getAttribute('data-step');
-
-            if (step === '1') {
-                if (button.getAttribute('data-value') === 'self') {
-                    ageGroupOptions.innerHTML = `
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="teen">Teen (13-18)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="adult">Adult (18-64)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="senior">Senior (65+)</button>
-                    `;
-                } else {
-                    ageGroupOptions.innerHTML = `
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="child">Child (Under 12)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="teen">Teen (13-18)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="adult">Adult (18-64)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="senior">Senior (65+)</button>
-                    `;
-                }
-
-                document.querySelectorAll('#age-group-options .option-btn').forEach(opt => {
-                    opt.addEventListener('click', handleOptionClick);
-                });
-            }
-
-            if (step === '2') {
-                const value = button.getAttribute('data-value');
-                let optionsHtml = '';
-
-                if (value === 'teen') {
-                    optionsHtml = `
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="mood-swings">Mood swings</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="social-pressures">Social pressures</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="academic-stress">Academic stress</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="peer-conflicts">Peer conflicts or bullying</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="self-esteem">Self-esteem or identity challenges</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="guidance">Not sure, I need guidance</button>
-                    `;
-                } else if (value === 'adult') {
-                    optionsHtml = `
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="individual-counseling">Individual Counseling</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="couples-therapy">Couples Therapy</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="medication-consultation">Medication Consultation</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="guidance">Not sure, I need guidance</button>
-                    `;
-                } else if (value === 'senior') {
-                    optionsHtml = `
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="life-transitions">Coping with life transitions</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="grief-counseling">Grief counseling</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="anxiety-depression">Managing anxiety or depression</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="caregiver-support">Caregiver support</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="cognitive-health">Cognitive health & memory support</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="guidance">Not sure, I need guidance</button>
-                    `;
-                } else if (value === 'child') {
-                    optionsHtml = `
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="emotional-difficulties">Emotional difficulties (e.g., anxiety, sadness)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="behavioral-challenges">Behavioral challenges (e.g., tantrums, aggression)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="learning-difficulties">Learning difficulties (e.g., focus, school struggles)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="social-difficulties">Social difficulties (e.g., making friends, shyness)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="sensory-sensitivities">Sensory sensitivities (e.g., picky eating, loud noises)</button>
-                        <button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="guidance">Not sure, I need guidance</button>
-                    `;
-                }
-
-                concernsOptions.innerHTML = optionsHtml;
-
-                document.querySelectorAll('#concerns-options .option-btn').forEach(opt => {
-                    opt.addEventListener('click', handleOptionClick);
-                });
-            }
-        });
-    });
-
     function handleOptionClick(event) {
         const button = event.currentTarget;
         const parentStep = button.closest('.form-step');
         const allOptions = parentStep.querySelectorAll('.option-btn');
 
-        allOptions.forEach(opt => {
-            opt.classList.remove('bg-pastel-blue', 'border-pastel-blue');
-            opt.classList.add('border');
-        });
-
+        allOptions.forEach(opt => opt.classList.remove('bg-pastel-blue', 'border-pastel-blue', 'border'));
         button.classList.add('bg-pastel-blue', 'border-pastel-blue');
-        button.classList.remove('border');
+        
+        updateDynamicOptions(parentStep.getAttribute('data-step'), button.getAttribute('data-value'));
     }
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        document.getElementById('appointment-form-container').classList.add('hidden');
-        document.getElementById('appointment-success').classList.remove('hidden');
-    });
+    function updateDynamicOptions(step, value) {
+        if (step === '1') {
+            ageGroupOptions.innerHTML = value === 'self'
+                ? generateAgeButtons(['teen', 'adult', 'senior'])
+                : generateAgeButtons(['child', 'teen', 'adult', 'senior']);
+            attachListenersToNewButtons('#age-group-options .option-btn');
+        }
+
+        if (step === '2') {
+            concernsOptions.innerHTML = generateConcernButtons(value);
+            attachListenersToNewButtons('#concerns-options .option-btn');
+        }
+    }
+
+    function generateAgeButtons(ages) {
+        const labels = {
+            child: 'Child (Under 12)',
+            teen: 'Teen (13-18)',
+            adult: 'Adult (18-64)',
+            senior: 'Senior (65+)'
+        };
+        return ages.map(age => createOptionButton(age, labels[age])).join('');
+    }
+
+    function generateConcernButtons(ageGroup) {
+        const concerns = {
+            teen: ['Mood swings', 'Social pressures', 'Academic stress', 'Peer conflicts or bullying', 'Self-esteem or identity challenges', 'Not sure, I need guidance'],
+            adult: ['Individual Counseling', 'Couples Therapy', 'Medication Consultation', 'Not sure, I need guidance'],
+            senior: ['Coping with life transitions', 'Grief counseling', 'Managing anxiety or depression', 'Caregiver support', 'Cognitive health & memory support', 'Not sure, I need guidance'],
+            child: ['Emotional difficulties', 'Behavioral challenges', 'Learning difficulties', 'Social difficulties', 'Sensory sensitivities', 'Not sure, I need guidance']
+        };
+        return concerns[ageGroup].map(concern => createOptionButton(concern.toLowerCase().replace(/ /g, '-'), concern)).join('');
+    }
+
+    function createOptionButton(value, text) {
+        return `<button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="${value}">${text}</button>`;
+    }
+
+    function attachListenersToNewButtons(selector) {
+        document.querySelectorAll(selector).forEach(opt => opt.addEventListener('click', handleOptionClick));
+    }
+
+    optionButtons.forEach(button => button.addEventListener('click', handleOptionClick));
 });
+</script>
