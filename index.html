@@ -119,6 +119,9 @@
             background-color: var(--pastel-blue);
             color: #1f2937;
         }
+        #appointment-success {
+    scroll-margin-top: 100px;
+}
     </style>
     <script>
         tailwind.config = {
@@ -827,7 +830,10 @@ if (value.includes('not-sure')) {
             senior: ['Coping with life transitions', 'Grief counseling', 'Managing anxiety or depression', 'Caregiver support', 'Cognitive health & memory support', 'Not sure, I need guidance'],
             child: ['Emotional difficulties', 'Behavioral challenges', 'Learning difficulties', 'Social difficulties', 'Sensory sensitivities', 'Not sure, I need guidance']
         };
-        return concerns[ageGroup].map(concern => createOptionButton(concern.toLowerCase().replace(/ /g, '-'), concern)).join('');
+       return concerns[ageGroup].map(concern => 
+    createOptionButton(concern === 'Not sure, I need guidance' ? 'not-sure' : concern.toLowerCase().replace(/ /g, '-'), 
+    concern)
+).join('');
     }
 
     function createOptionButton(value, text) {
@@ -939,39 +945,38 @@ document.addEventListener('DOMContentLoaded', function() {
             <i class="fas fa-times"></i>
         </button>
         <h2 class="text-2xl font-bold mb-4">Book Your Appointment</h2>
-       <form id="appointment-form-popup" action="https://formspree.io/f/xkgodlqk" method="POST">
-    <div class="mb-4">
-        <label for="appointment-date" class="block text-sm font-medium text-gray-700">Select Date</label>
-        <input type="text" id="appointment-date-popup" name="appointment-date" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
-    </div>
-    <div class="mb-4">
-        <label for="appointment-time" class="block text-sm font-medium text-gray-700">Select Time</label>
-        <input type="text" id="appointment-time-popup" name="appointment-time" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
-    </div>
-    <div class="mb-4">
-        <label for="name" class="block text-sm font-medium text-gray-700">Full Name <span class="text-red-500">*</span></label>
-        <input type="text" id="name-popup" name="name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
-    </div>
-    <div class="mb-4">
-        <label for="email" class="block text-sm font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
-        <input type="email" id="email-popup" name="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
-    </div>
-    <div class="mb-4">
-        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number <span class="text-red-500">*</span></label>
-        <input type="tel" id="phone-popup" name="phone" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
-    </div>
-    <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Submit</button>
-    
-    <!-- Success Message -->
-    <div class="mt-6 text-center hidden" id="popup-success">
-        <div class="text-6xl text-pastel-green mb-4">
-            <i class="fas fa-check-circle"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-2">Request Received!</h3>
-        <p class="text-gray-600">We'll contact you shortly to confirm your appointment.</p>
-    </div>
-</form>
-    </div>
+        <form id="appointment-form-popup" action="https://formspree.io/f/xkgodlqk" method="POST">
+            <div class="mb-4">
+                <label for="appointment-date" class="block text-sm font-medium text-gray-700">Select Date</label>
+                <input type="text" id="appointment-date-popup" name="appointment-date" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <label for="appointment-time" class="block text-sm font-medium text-gray-700">Select Time</label>
+                <input type="text" id="appointment-time-popup" name="appointment-time" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-700">Full Name <span class="text-red-500">*</span></label>
+                <input type="text" id="name-popup" name="name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
+                <input type="email" id="email-popup" name="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number <span class="text-red-500">*</span></label>
+                <input type="tel" id="phone-popup" name="phone" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Submit</button>
+            
+            <!-- Success Message -->
+            <div class="mt-6 text-center hidden" id="popup-success">
+                <div class="text-6xl text-pastel-green mb-4">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Request Received!</h3>
+                <p class="text-gray-600">We'll contact you shortly to confirm your appointment.</p>
+            </div>
+        </form>
 </div>
     <script>
 function openPopup(event) {
@@ -1040,9 +1045,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: { 'Accept': 'application/json' }
             });
             
-            document.getElementById('appointment-success').classList.remove('hidden');
-            this.reset();
-            setTimeout(() => window.scrollTo(0, 0), 100);
+           document.getElementById('appointment-success').classList.remove('hidden');
+this.reset();
+window.scrollTo({
+    top: document.getElementById('appointment-success').offsetTop - 100,
+    behavior: 'smooth'
+});
         } catch (error) {
             alert('Error submitting form. Please try again.');
         }
@@ -1063,9 +1071,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: { 'Accept': 'application/json' }
             });
 
-            this.reset();
-            document.getElementById('popup-form').classList.add('hidden');
-            alert('Thank you! We will contact you shortly.');
+            // Show success message in popup
+this.querySelector('#popup-success').classList.remove('hidden');
+setTimeout(() => {
+    document.getElementById('popup-form').classList.add('hidden');
+    this.reset();
+}, 3000);
         } catch (error) {
             alert('Error submitting form. Please try again.');
         }
