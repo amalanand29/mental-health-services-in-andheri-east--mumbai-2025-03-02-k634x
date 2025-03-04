@@ -249,9 +249,9 @@
     </div>
 </div>
 
-<<!-- Form Step 3 -->
+<!-- Form Step 3 -->
 <div class="form-step" data-step="3">
-    <h3 class="text-lg font-medium mb-4">Discuss your query with qualified professional.?</h3>
+    <h3 class="text-lg font-medium mb-4">Primary Concern?</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="concerns-options">
         <!-- Concern options will be inserted here based on previous selection -->
     </div>
@@ -259,19 +259,8 @@
         <button type="button" class="prev-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-all">Previous</button>
         <button type="button" class="next-btn px-6 py-2 bg-dark-blue text-white rounded-full hover:bg-opacity-90 transition-all">Next</button>
     </div>
-    <!-- Guidance Section -->
-    <div id="guidance-section" class="hidden mt-6 p-4 bg-pastel-yellow rounded-lg">
-        <p class="mb-2 font-medium">Call or WhatsApp </p>
-        <div class="flex gap-2">
-            <a href="https://wa.me/919653677486?text=Need%20guidance,%20talk%20to%20our%20expert" class="flex-1 text-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-all">
-    <i class="fab fa-whatsapp mr-2"></i>Chat Now
-</a>
-            <a href="https://wa.me/919653677486" class="flex-1 text-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-all">
-                <i class="fab fa-whatsapp mr-2"></i>Chat Now
-            </a>
-        </div>
-    </div>
 </div>
+
 <!-- Form Step 4 -->
 <div class="form-step" data-step="4">
     <h3 class="text-lg font-medium mb-4">Preferred Session Type?</h3>
@@ -1040,129 +1029,79 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const formSteps = document.querySelectorAll('.form-step');
-    const nextButtons = document.querySelectorAll('.next-btn');
-    const prevButtons = document.querySelectorAll('.prev-btn');
-    const optionButtons = document.querySelectorAll('.option-btn');
-    const ageGroupOptions = document.getElementById('age-group-options');
-    const concernsOptions = document.getElementById('concerns-options');
-    const progressBar = document.querySelector('.progress-bar');
-    const guidanceSection = document.getElementById('guidance-section');
-    
-    let currentStep = 1;
-    const totalSteps = formSteps.length;
-
-    function updateStep() {
-        formSteps.forEach(step => step.classList.remove('active'));
-        formSteps[currentStep - 1].classList.add('active');
-        progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
-    }
-
-    nextButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const activeStep = document.querySelector('.form-step.active');
-
-            // If in Step 5 (date & time selection), check input fields instead of option buttons
-            if (activeStep.dataset.step === "5") {
-                const selectedDate = document.getElementById("appointment-date").value;
-                const selectedTime = document.getElementById("appointment-time").value;
-
-                if (!selectedDate || !selectedTime) {
-                    alert("Please select a date and time to proceed.");
-                    return;
-                }
-            } else {
-                // For other steps, check if an option is selected
-                const selectedOption = activeStep.querySelector('.option-btn.bg-pastel-blue');
-
-                if (!selectedOption) {
-                    alert("Please select an option to proceed.");
-                    return;
-                }
-
-                // Show guidance section if "I need guidance" is selected
-                if (selectedOption.dataset.value === "not-sure") {
-                    guidanceSection.classList.remove('hidden');
-                    return; // Stop here, do not proceed to the next step
-                } else {
-                    guidanceSection.classList.add('hidden');
-                }
-            }
-
-            // Proceed to the next step if all conditions are met
-            if (currentStep < totalSteps) {
-                currentStep++;
-                updateStep();
-            }
-        });
-    });
-
-    prevButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            if (currentStep > 1) {
-                currentStep--;
-                updateStep();
-            }
-        });
-    });
-
-    function handleOptionClick(event) {
-        const button = event.currentTarget;
-        const parentStep = button.closest('.form-step');
-        const allOptions = parentStep.querySelectorAll('.option-btn');
-
-        allOptions.forEach(opt => opt.classList.remove('bg-pastel-blue', 'border-pastel-blue', 'border'));
-        button.classList.add('bg-pastel-blue', 'border-pastel-blue');
+    // Handle main form submission
+    document.querySelector('#appointment-form-container form')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
         
-        updateDynamicOptions(parentStep.getAttribute('data-step'), button.getAttribute('data-value'));
-    }
-
-    function updateDynamicOptions(step, value) {
-        if (step === '1') {
-            ageGroupOptions.innerHTML = value === 'self'
-                ? generateAgeButtons(['teen', 'adult', 'senior'])
-                : generateAgeButtons(['child', 'teen', 'adult', 'senior']);
-            attachListenersToNewButtons('#age-group-options .option-btn');
+        // Send email using Formspree
+        const formData = new FormData(this);
+        formData.append('_cc', 'richika.g@omnihealthservices.in');
+        formData.append('_cc', 'amal.g@omnihealthservices.in');
+        
+        try {
+            await fetch('https://formspree.io/f/xjvnqklq', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            
+           document.getElementById('appointment-success').classList.remove('hidden');
+this.reset();
+window.scrollTo({
+    top: document.getElementById('appointment-success').offsetTop - 100,
+    behavior: 'smooth'
+});
+        } catch (error) {
+            alert('Error submitting form. Please try again.');
         }
+    });
 
-        if (step === '2') {
-            concernsOptions.innerHTML = generateConcernButtons(value);
-            attachListenersToNewButtons('#concerns-options .option-btn');
+    // Handle popup form submission
+    document.querySelector('#popup-form form')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        formData.append('_cc', 'richika.g@omnihealthservices.in');
+        formData.append('_cc', 'amal.g@omnihealthservices.in');
+
+        try {
+            await fetch('https://formspree.io/f/xkgodlqk', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            // Show success message in popup
+this.querySelector('#popup-success').classList.remove('hidden');
+setTimeout(() => {
+    document.getElementById('popup-form').classList.add('hidden');
+    this.reset();
+}, 3000);
+        } catch (error) {
+            alert('Error submitting form. Please try again.');
         }
-    }
+    });
 
-    function generateAgeButtons(ages) {
-        const labels = {
-            child: 'Child (Under 12)',
-            teen: 'Teen (13-18)',
-            adult: 'Adult (18-64)',
-            senior: 'Senior (65+)'
-        };
-        return ages.map(age => createOptionButton(age, labels[age])).join('');
-    }
-
-    function generateConcernButtons(ageGroup) {
-        const concerns = {
-            teen: ['Mood swings', 'Social pressures', 'Academic stress', 'Peer conflicts or bullying', 'Self-esteem or identity challenges', 'Not sure, I need guidance'],
-            adult: ['Individual Counseling', 'Couples Therapy', 'Medication Consultation', 'Not sure, I need guidance'],
-            senior: ['Coping with life transitions', 'Grief counseling', 'Managing anxiety or depression', 'Caregiver support', 'Cognitive health & memory support', 'Not sure, I need guidance'],
-            child: ['Emotional difficulties', 'Behavioral challenges', 'Learning difficulties', 'Social difficulties', 'Sensory sensitivities', 'Not sure, I need guidance']
-        };
-        return concerns[ageGroup].map(concern => 
-            createOptionButton(concern === 'Not sure, I need guidance' ? 'not-sure' : concern.toLowerCase().replace(/ /g, '-'), 
-            concern)
-        ).join('');
-    }
-
-    function createOptionButton(value, text) {
-        return `<button type="button" class="option-btn p-4 border rounded-xl text-left hover:bg-pastel-blue hover:border-pastel-blue transition-all" data-value="${value}">${text}</button>`;
-    }
-
-    function attachListenersToNewButtons(selector) {
-        document.querySelectorAll(selector).forEach(opt => opt.addEventListener('click', handleOptionClick));
-    }
-
-    optionButtons.forEach(button => button.addEventListener('click', handleOptionClick));
+    // Add guidance options
+    document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if(this.dataset.value.includes('not-sure')) {
+                const guidanceHTML = `
+                    <div class="mt-4 p-4 bg-pastel-yellow rounded-lg">
+                        <p class="mb-2">We recommend:</p>
+                        <div class="flex gap-2">
+                            <a href="tel:09653677486" class="px-4 py-2 bg-pastel-blue rounded-full">
+                                <i class="fas fa-phone mr-2"></i>Call Now
+                            </a>
+                            <a href="https://wa.me/919653677486" class="px-4 py-2 bg-green-500 text-white rounded-full">
+                                <i class="fab fa-whatsapp mr-2"></i>Chat Now
+                            </a>
+                        </div>
+                    </div>`;
+                this.closest('.form-step').insertAdjacentHTML('beforeend', guidanceHTML);
+            }
+        });
+    });
 });
 </script>
 </body>
